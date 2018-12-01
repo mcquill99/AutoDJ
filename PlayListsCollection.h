@@ -7,7 +7,8 @@
 
 
 class PlayListsCollection {
-
+private:
+public:
 };
 
 

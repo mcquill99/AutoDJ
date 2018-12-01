@@ -3,3 +3,7 @@
 //
 
 #include "AutoDJ.h"
+
+int main() {
+    return 0;
+}
