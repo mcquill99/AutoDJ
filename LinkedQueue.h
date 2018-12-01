@@ -7,20 +7,20 @@
 
 #include <string>
 #include "LinkedNode.h"
-
+template <class T>
 class LinkedQueue {
 private:
-    LinkedNode* front;
-    LinkedNode* end;
+    LinkedNode<T>* front;
+    LinkedNode<T>* end;
 public:
     LinkedQueue();
     LinkedQueue(const LinkedQueue& queueToCopy);
     LinkedQueue& operator=(const LinkedQueue& queueToCopy);
     ~LinkedQueue();
-    void enqueue(std::string item);
-    std::string dequeue();
+    void enqueue(T item);
+    T dequeue();
     bool isEmpty();
 };
 
-
+#include "LinkedQueue.inl"
 #endif //AUTODJ_LINKEDQUEUE_H

@@ -2,14 +2,15 @@
 // Created by eostendarp on 11/27/18.
 //
 
+#include <stdexcept>
 #include "LinkedQueue.h"
-
-LinkedQueue::LinkedQueue(){
+template <class T>
+LinkedQueue<T>::LinkedQueue(){
     front = nullptr;
     end = nullptr;
 }
-
-LinkedQueue::LinkedQueue(const LinkedQueue& queueToCopy){
+template <class T>
+LinkedQueue<T>::LinkedQueue(const LinkedQueue<T>& queueToCopy){
     LinkedNode* copyCurr = queueToCopy.front;
     LinkedNode* curr = new LinkedNode(*copyCurr);
     front = curr;
@@ -20,8 +21,8 @@ LinkedQueue::LinkedQueue(const LinkedQueue& queueToCopy){
     }
     end = curr;
 }
-
-LinkedQueue& LinkedQueue::operator=(const LinkedQueue& queueToCopy){
+template <class T>
+LinkedQueue<T>& LinkedQueue<T>::operator=(const LinkedQueue<T>& queueToCopy){
     if (&queueToCopy != this) {
 
         LinkedNode* curr = front;
@@ -45,8 +46,8 @@ LinkedQueue& LinkedQueue::operator=(const LinkedQueue& queueToCopy){
     }
     return *this;
 }
-
-LinkedQueue::~LinkedQueue(){
+template <class T>
+LinkedQueue<T>::~LinkedQueue(){
     LinkedNode* curr = front;
     while (curr != nullptr) {
         LinkedNode* toDelete = curr;
@@ -54,8 +55,8 @@ LinkedQueue::~LinkedQueue(){
         delete toDelete;
     }
 }
-
-void LinkedQueue::enqueue(std::string item){
+template <class T>
+void LinkedQueue<T>::enqueue(T item){
     LinkedNode* newNode = new LinkedNode(item);
     //if front is nullptr, end should be nullptr too
     if (front == nullptr){
@@ -67,17 +68,17 @@ void LinkedQueue::enqueue(std::string item){
         end = newNode;
     }
 }
-
-std::string LinkedQueue::dequeue(){
+template <class T>
+T LinkedQueue<T>::dequeue(){
     if (isEmpty())
         throw std::out_of_range("queue is empty");
-    std::string item = front->getItem();
+    T item = front->getItem();
     LinkedNode* toDelete = front;
     front = front->getNext();
     delete toDelete;
     return item;
 }
-
-bool LinkedQueue::isEmpty(){
+template <class T>
+bool LinkedQueue<T>::isEmpty(){
     return front == nullptr;
 }

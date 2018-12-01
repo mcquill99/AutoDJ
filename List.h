@@ -9,6 +9,7 @@
 #include <stdexcept>
 #include <string>
 
+template <class T>
 class List {
 private:
     List(const List& listToCopy);
@@ -16,20 +17,19 @@ private:
 public:
     List() {}
     virtual ~List() {}
-    virtual void insertAtEnd(int itemToAdd)=0;
-    virtual int getValueAt(int index)=0;
+    virtual void insertAtEnd(T valueToAdd)=0;
+    virtual T getValueAt(int index)=0;
     virtual std::string toString()=0;
     virtual bool isEmpty()=0;
     virtual int itemCount()=0;
     virtual void clearList()=0;
-    virtual int find(int numToFind)=0;
-    virtual int findLast(int numToFind)=0;
-    virtual int findMaxIndex()=0;
-    virtual void insertAtFront(int itemToAdd)=0;
-    virtual void insertAt(int itemToAdd, int index)=0;
-    virtual int removeValueAtEnd()=0;
-    virtual int removeValueAtFront()=0;
-    virtual int removeValueAt(int index)=0;
+    virtual int find(T valueToFind)=0;
+    virtual int findLast(T valueToFind)=0;
+    virtual void insertAtFront(T valueToAdd)=0;
+    virtual void insertAt(T valueToAdd, int index)=0;
+    virtual T removeValueAtEnd()=0;
+    virtual T removeValueAtFront()=0;
+    virtual T removeValueAt(int index)=0;
 };
 
 
