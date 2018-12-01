@@ -20,4 +20,6 @@ public:
 };
 
 
+#include "LinkedNode.inl"
+
 #endif //AUTODJ_LINKEDNODE_H
