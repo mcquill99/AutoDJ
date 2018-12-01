@@ -76,7 +76,7 @@ T LinkedQueue<T>::dequeue(){
     LinkedNode<T>* toDelete = front;
     front = front->getNext();
     delete toDelete;
-    return item;
+    return *item;
 }
 template <class T>
 bool LinkedQueue<T>::isEmpty(){
@@ -85,7 +85,7 @@ bool LinkedQueue<T>::isEmpty(){
 template <class T>
 std::string LinkedQueue<T>::toString(){
     std::string returnString = "{";
-    LinkedNode<T> temp = front;
+    LinkedNode<T>* temp = front;
     while(temp != end){
         returnString+=temp.getItem().toString();
         returnString+=", ";
