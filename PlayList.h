@@ -5,7 +5,6 @@
 #ifndef AUTODJ_PLAYLIST_H
 #define AUTODJ_PLAYLIST_H
 
-
 #include "Song.h"
 #include "LinkedQueue.h"
 
