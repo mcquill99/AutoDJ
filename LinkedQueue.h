@@ -20,6 +20,7 @@ public:
     void enqueue(T item);
     T dequeue();
     bool isEmpty();
+    std::string toString();
 };
 
 #include "LinkedQueue.inl"
