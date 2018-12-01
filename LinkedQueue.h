@@ -10,8 +10,8 @@
 template <class T>
 class LinkedQueue {
 private:
-    LinkedNode* front;
-    LinkedNode* end;
+    LinkedNode<T>* front;
+    LinkedNode<T>* end;
 public:
     LinkedQueue();
     LinkedQueue(const LinkedQueue& queueToCopy);
