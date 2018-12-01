@@ -14,8 +14,8 @@ private:
     double duration;
     int playCount;
 public:
-    Song(std::string artist, std::string title, double duration, int playCount);
-    
+    Song(std::string artist, std::string title, double duration, int playCount=0);
+
 };
 
 
