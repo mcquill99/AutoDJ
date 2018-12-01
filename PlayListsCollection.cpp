@@ -3,3 +3,7 @@
 //
 
 #include "PlayListsCollection.h"
+
+PlayListsCollection::PlayListsCollection(){
+    collection = new LinkedQueue<PlayList*>();
+}
