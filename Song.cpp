@@ -11,3 +11,23 @@ Song::Song(std::string artistIn, std::string titleIn, double durationIn, int pla
     playCount = playCountIn;
 }
 
+std::string Song::getArtist(){
+    return artist;
+}
+
+std::string Song::getTitle(){
+    return title;
+}
+
+double Song::getDuration(){
+    return duration;
+}
+
+int Song::getPlayCount(){
+    return playCount;
+}
+
+void Song::updatePlayCount(){
+    playCount++;
+}
+
