@@ -3,3 +3,11 @@
 //
 
 #include "Song.h"
+
+Song::Song(std::string artistIn, std::string titleIn, double durationIn, int playCountIn){
+    artist = artistIn;
+    title = titleIn;
+    duration = durationIn;
+    playCount = playCountIn;
+}
+

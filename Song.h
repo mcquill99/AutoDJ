@@ -14,10 +14,8 @@ private:
     double duration;
     int playCount;
 public:
-    Song(std::string artist, std::string title, double duration, int playcount);
-    Song(const Song& songToCopy);
-    Song& operator=(const Song& songToCopy);
-    ~Song();
+    Song(std::string artist, std::string title, double duration, int playCount);
+    
 };
 
 
