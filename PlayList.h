@@ -11,7 +11,7 @@
 class PlayList {
 private:
     std::string name;
-    LinkedQueue<Song>* playlist;
+    LinkedQueue<Song*>* songlist;
 public:
     PlayList(std::string newName);
     PlayList(const PlayList& playlistToCopy);

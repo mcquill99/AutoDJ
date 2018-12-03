@@ -21,6 +21,7 @@ public:
     T dequeue();
     bool isEmpty();
     std::string toString();
+    double sumItems();
 };
 
 #include "LinkedQueue.inl"

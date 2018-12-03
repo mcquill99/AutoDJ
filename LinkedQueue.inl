@@ -87,11 +87,20 @@ std::string LinkedQueue<T>::toString(){
     std::string returnString = "{";
     LinkedNode<T>* temp = front;
     while(temp != end){
-        returnString+=temp.getItem().toString();
+        returnString+=temp->getItem()->toString();
         returnString+=", ";
-        temp=temp.getNext();
+        temp=temp->getNext();
     }
-    returnString+=temp.getItem().toString();
+    returnString+=temp->getItem()->toString();
     returnString+="}";
     return returnString;
+}
+template <class T>
+double LinkedQueue<T>::sumItems(){
+    LinkedNode<T> temp = *front;
+    double sumTotal = 0;
+    while(&temp != end){
+        sumTotal+=temp.getItem()->getDuration();
+    }
+    return sumTotal;
 }
