@@ -5,15 +5,24 @@
 #ifndef AUTODJ_PLAYLIST_H
 #define AUTODJ_PLAYLIST_H
 
-#include <string>
+#include "Song.h"
+#include "LinkedQueue.h"
+
 class PlayList {
 private:
-
+    std::string name;
+    LinkedQueue<Song*>* songlist;
 public:
-    PlayList(std::string nameIn);
-    void remove(std::string artist, std::string songTitle);
-    void add(std::string artist, std::string songTitle);
-
+    PlayList(std::string newName);
+    PlayList(const PlayList& playlistToCopy);
+    PlayList& operator=(const PlayList& playlistToCopy);
+    ~PlayList();
+    void addSong(Song songToAdd);
+    void removeSong();
+    std::string toString();
+    double getDuration();
+    Song playNext();
+    bool isEmpty();
 };
 
 
