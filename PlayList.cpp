@@ -10,11 +10,12 @@ PlayList::PlayList(std::string newName) {
 }
 
 PlayList::PlayList(const PlayList &playlistToCopy) {
-    playlistToCopy.songlist = new LinkedQueue<Song*>(*songlist);
+    songlist = playlistToCopy.songlist;
 }
 
 PlayList &PlayList::operator=(const PlayList &playlistToCopy) {
-
+    delete songlist;
+    songlist = playlistToCopy.songlist;
 }
 
 PlayList::~PlayList() {
