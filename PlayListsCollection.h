@@ -19,12 +19,14 @@ public:
     ~PlayListsCollection();
 
     std::string allToString();
-    std::string toString();
+    std::string toString(std::string listName);
 
-    void addPlayList(PlayList playListToAdd);
+    void addPlayList(PlayList *playListToAdd);
     void removePlayList();
 
     void addRandomPlayList();
+
+    LinkedQueue<PlayList*> getCollection();
 };
 
 
