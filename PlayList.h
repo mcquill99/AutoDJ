@@ -23,6 +23,7 @@ public:
     double getDuration();
     Song playNext();
     bool isEmpty();
+    std::string getName();
 };
 
 

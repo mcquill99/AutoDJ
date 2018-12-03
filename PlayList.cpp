@@ -46,3 +46,6 @@ Song PlayList::playNext() {
 bool PlayList::isEmpty() {
     return songlist->isEmpty();
 }
+std::string PlayList::getName(){
+    return name;
+}
