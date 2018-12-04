@@ -8,7 +8,7 @@
 
 int main(){
     std::cout << "-----Song-----" << std::endl;
-    Song newSong = Song("Darude", "SandStorm", 4.59);
+    Song newSong = Song("Darude", "SandStorm", 4.59, 0);
 
 
 
