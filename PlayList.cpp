@@ -1,11 +1,7 @@
-//
-// Created by eostendarp on 11/27/18.
-//
-
 #include "PlayList.h"
 
 PlayList::PlayList(std::string newName) {
-    songlist = new LinkedQueue<Song*>();
+    songlist = new LinkedQueue<Song>();
     this->name = newName;
 }
 
@@ -23,30 +19,30 @@ PlayList::~PlayList() {
 }
 
 void PlayList::addSong(Song songToAdd) {
-    songlist->enqueue(&songToAdd);
+    songlist->enqueue(songToAdd);
 }
 
 void PlayList::removeSong() {
+    //TODO: This is completely incorrect DAMION
     songlist->dequeue();
 }
 
-std::string PlayList::toString() {
-    std::string returnString;
-    returnString = songlist->toString();
-    return returnString;
-}
-
-double PlayList::getDuration() {
-    return songlist->sumItems();
+int PlayList::getDuration() {
+    return songlist->getSum();
 }
 
 Song PlayList::playNext() {
-    return *songlist->dequeue();
+    return songlist->dequeue();
 }
 
 bool PlayList::isEmpty() {
     return songlist->isEmpty();
 }
+
 std::string PlayList::getName(){
     return name;
+}
+
+std::ostream& operator<<(std::ostream& os, const PlayList& a){
+    return os << *a.songlist;
 }
