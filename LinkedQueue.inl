@@ -4,6 +4,7 @@
 
 #include <stdexcept>
 #include "LinkedQueue.h"
+#include "PlayList.h"
 template <class T>
 LinkedQueue<T>::LinkedQueue(){
     front = nullptr;
@@ -111,5 +112,5 @@ T LinkedQueue<T>::findPlayList(std::string name){
     while(name != temp->getItem()->getName()){
         temp = temp->getNext();
     }
-    return temp->getItem();
+    return *temp->getItem();
 }

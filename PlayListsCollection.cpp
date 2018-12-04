@@ -9,7 +9,9 @@ PlayListsCollection::PlayListsCollection(){
 }
 
 PlayListsCollection::PlayListsCollection(const PlayListsCollection & CollectionToCopy){
-    collection = new LinkedQueue<PlayList*>(CollectionToCopy.getCollection());
+
+    LinkedQueue<PlayList*> *toCopy = CollectionToCopy.getCollection();
+    collection = new LinkedQueue<PlayList*>(*toCopy);
 
 }
 PlayListsCollection::~PlayListsCollection(){
@@ -60,6 +62,6 @@ void PlayListsCollection::addRandomPlayList(){
 
 }
 
-LinkedQueue<PlayList*>* const PlayListsCollection::getCollection(){
+LinkedQueue<PlayList*>* PlayListsCollection::getCollection() const {
     return collection;
 }
