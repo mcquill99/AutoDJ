@@ -26,7 +26,7 @@ public:
 
     void addRandomPlayList();
 
-    LinkedQueue<PlayList*> getCollection();
+    LinkedQueue<PlayList*>* const getCollection();
 };
 
 

@@ -9,8 +9,7 @@ PlayListsCollection::PlayListsCollection(){
 }
 
 PlayListsCollection::PlayListsCollection(const PlayListsCollection & CollectionToCopy){
-    LinkedQueue<PlayList*> copyCollection = CollectionToCopy->getCollection()
-    collection = new LinkedQueue<PlayList*>(const LinkedQueue<PlayList*> copyCollection);
+    collection = new LinkedQueue<PlayList*>(CollectionToCopy.getCollection());
 
 }
 PlayListsCollection::~PlayListsCollection(){
@@ -19,20 +18,31 @@ PlayListsCollection::~PlayListsCollection(){
 }
 
 PlayListsCollection& PlayListsCollection::operator=(const PlayListsCollection &collectionToCopy){
+    if(&collectionToCopy != this){
+        delete collection;
+    }
 
 }
 
 std::string PlayListsCollection::allToString(){
     std::string toString = "";
-    LinkedQueue<PlayList*> collection2 = new LinkedQueue( const)
+    LinkedQueue<PlayList*> collection2 = LinkedQueue<PlayList*>(*collection);
 
-    while(!collection->isEmpty()){
-
+    while(!collection2.isEmpty()){
+        PlayList *listToString = collection2.dequeue();
+        toString = toString + listToString->getName(); + " " + std::to_string(listToString->getDuration()) + "\n";
     }
+
+    return toString;
 
 }
 
 std::string PlayListsCollection::toString(std::string listName){
+        PlayList *listToReturn = collection->findPlayList(listName);
+
+        return listToReturn->toString();
+
+
 
 }
 
@@ -50,6 +60,6 @@ void PlayListsCollection::addRandomPlayList(){
 
 }
 
-LinkedQueue<PlayList*> PlayListsCollection::getCollection(){
-    return *collection;
+LinkedQueue<PlayList*>* const PlayListsCollection::getCollection(){
+    return collection;
 }
