@@ -22,7 +22,6 @@ public:
     bool isEmpty();
     std::string toString();
     double sumItems();
-    T findPlayList(std::string name);
 };
 
 #include "LinkedQueue.inl"

@@ -105,12 +105,3 @@ double LinkedQueue<T>::sumItems(){
     }
     return sumTotal;
 }
-
-template <class T>
-T LinkedQueue<T>::findPlayList(std::string name){
-    LinkedNode<T>* temp = front;
-    while(name != temp->getItem()->getName()){
-        temp = temp->getNext();
-    }
-    return *temp->getItem();
-}

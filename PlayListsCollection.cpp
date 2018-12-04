@@ -28,10 +28,10 @@ PlayListsCollection& PlayListsCollection::operator=(const PlayListsCollection &c
 
 std::string PlayListsCollection::allToString(){
     std::string toString = "";
-    LinkedQueue<PlayList*> collection2 = LinkedQueue<PlayList*>(*collection);
+    LinkedQueue<PlayList*> collectionCopy = LinkedQueue<PlayList*>(*collection);
 
-    while(!collection2.isEmpty()){
-        PlayList *listToString = collection2.dequeue();
+    while(!collectionCopy.isEmpty()){
+        PlayList *listToString = collectionCopy.dequeue();
         toString = toString + listToString->getName(); + " " + std::to_string(listToString->getDuration()) + "\n";
     }
 
@@ -40,9 +40,17 @@ std::string PlayListsCollection::allToString(){
 }
 
 std::string PlayListsCollection::toString(std::string listName){
-        PlayList *listToReturn = collection->findPlayList(listName);
+        LinkedQueue <PlayList*> collectionCopy = LinkedQueue<PlayList*>(*collection);
+        PlayList *listToPrint = nullptr;
 
-        return listToReturn->toString();
+        while(!collectionCopy.isEmpty()){
+            PlayList *tempList = collectionCopy.dequeue();
+            if(tempList->getName() == listName){
+                listToPrint = tempList;
+            }
+        }
+
+        return listToPrint->toString();
 
 
 
