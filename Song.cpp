@@ -1,54 +1,60 @@
 //
-// Created by eostendarp on 11/27/18.
+// Created by eostendarp on 12/3/18.
 //
 
 #include "Song.h"
+#include <sstream>
+#include <iomanip>
 
-Song::Song(std::string artistIn, std::string titleIn, double durationIn, int playCountIn){
-    artist = artistIn;
-    title = titleIn;
-    duration = durationIn;
-    playCount = playCountIn;
+
+Song::Song(std::string artist, std::string title, int duration, int playCount) {
+    this->artist = artist;
+    this->title = title;
+    this->duration = duration;
+    this->playCount = playCount;
 }
-Song::Song(const Song& songToCopy){
+
+Song::Song(const Song& songToCopy) {
     artist = songToCopy.artist;
     title = songToCopy.title;
     duration = songToCopy.duration;
     playCount = songToCopy.playCount;
 }
 
-Song& Song::operator=(const Song& songToCopy){
-    if(this != &songToCopy){
+Song& Song::operator=(const Song& songToCopy) {
+    if (&songToCopy != this) {
         artist = songToCopy.artist;
         title = songToCopy.title;
         duration = songToCopy.duration;
         playCount = songToCopy.playCount;
     }
-
     return *this;
-
 }
-std::string Song::getArtist(){
+
+std::string Song::getArtist() {
     return artist;
 }
 
-std::string Song::getTitle(){
+std::string Song::getTitle() {
     return title;
 }
 
-double Song::getDuration(){
+int Song::getDuration() {
     return duration;
 }
 
-int Song::getPlayCount(){
+int Song::getPlayCount() {
     return playCount;
 }
 
-void Song::updatePlayCount(){
+void Song::incrementPlayCount() {
     playCount++;
 }
 
-std::string Song::toString(){
-    return title + " By " + artist;
+bool operator==(const Song& a, const Song& b) {
+    return a.artist == b.artist && a.title == b.title && a.duration == b.duration && a.playCount == b.playCount;
 }
 
+std::ostream& operator<<(std::ostream& os, const Song& a) {
+    return os << "<" << a.artist << " - " << a.title << ", " << a.duration / 60 << ":" << std::setfill('0') << std::setw(2) << a.duration % 60 << ", plays: " << a.playCount << ">";
+}
