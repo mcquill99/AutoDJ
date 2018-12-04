@@ -87,4 +87,3 @@ template <class T>
 bool LinkedQueue<T>::isEmpty() {
     return front == nullptr;
 }
-

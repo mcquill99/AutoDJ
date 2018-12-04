@@ -11,7 +11,7 @@
 class PlayList {
 private:
     std::string name;
-    LinkedQueue<Song*>* songlist;
+    LinkedQueue<Song>* songlist;
 public:
     PlayList(std::string newName);
     PlayList(const PlayList& playlistToCopy);
@@ -20,10 +20,12 @@ public:
     void addSong(Song songToAdd);
     void removeSong();
     std::string toString();
-    double getDuration();
+    int getDuration();
     Song playNext();
     bool isEmpty();
     std::string getName();
+    friend std::ostream& operator<<(std::ostream& os, const PlayList& a);
+
 };
 
 
