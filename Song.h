@@ -1,5 +1,5 @@
 //
-// Created by eostendarp on 11/27/18.
+// Created by eostendarp on 12/3/18.
 //
 
 #ifndef AUTODJ_SONG_H
@@ -8,23 +8,23 @@
 
 #include <string>
 
+
 class Song {
 private:
     std::string artist, title;
-    double duration;
-    int playCount;
+    int duration, playCount;
 public:
-    Song(std::string artistIn, std::string titleIn, double durationIn, int playCountIn=0);
+    Song(std::string artist, std::string title, int duration, int playCount);
     Song(const Song& songToCopy);
     Song& operator=(const Song& songToCopy);
     std::string getArtist();
     std::string getTitle();
-    double getDuration();
+    int getDuration();
     int getPlayCount();
-    void updatePlayCount();
-    std::string toString();
-
-};
+    void incrementPlayCount();
+    friend bool operator==(const Song& a, const Song& b);
+    friend std::ostream& operator<<(std::ostream& os, const Song& a);
+    };
 
 
 #endif //AUTODJ_SONG_H

@@ -1,12 +1,13 @@
 //
-// Created by eostendarp on 11/27/18.
+// Created by eostendarp on 12/4/18.
 //
 
 #ifndef AUTODJ_LINKEDQUEUE_H
 #define AUTODJ_LINKEDQUEUE_H
 
-#include <string>
+
 #include "LinkedNode.h"
+
 template <class T>
 class LinkedQueue {
 private:
@@ -17,12 +18,23 @@ public:
     LinkedQueue(const LinkedQueue& queueToCopy);
     LinkedQueue& operator=(const LinkedQueue& queueToCopy);
     ~LinkedQueue();
-    void enqueue(T item);
+    void enqueue(const T& item);
     T dequeue();
     bool isEmpty();
-    std::string toString();
-    double sumItems();
+    friend std::ostream& operator<<(std::ostream& os, const LinkedQueue<T>& a) {
+        if (a.front == nullptr)
+            return os << "[]";
+        os << "[";
+        LinkedNode<T>* curr = a.front;
+        while (curr->getNext() != nullptr) {
+            os << *curr << " -> ";
+            curr = curr->getNext();
+        }
+        return os << *curr << "]";
+    }
 };
 
 #include "LinkedQueue.inl"
+
+
 #endif //AUTODJ_LINKEDQUEUE_H
