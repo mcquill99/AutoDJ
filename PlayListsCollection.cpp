@@ -61,7 +61,6 @@ void PlayListsCollection::removePlayList(){
     if(!collection->isEmpty()){
         collection->removeValueAtFront();
     }
-
 }
 
 void PlayListsCollection::addRandomPlayList(){

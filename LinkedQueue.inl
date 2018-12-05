@@ -79,7 +79,7 @@ T LinkedQueue<T>::dequeue() {
     T item = front->getItem();
     LinkedNode<T>* toDelete = front;
     front = front->getNext();
-    delete toDelete;
+//    delete toDelete;
     return item;
 }
 

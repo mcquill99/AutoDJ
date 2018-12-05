@@ -57,37 +57,44 @@ int main(){
 
     myList.addSong(song1);
     myList.addSong(song2);
+    std::cout << "Added playList 'rock'" << std::endl;
+    std::cout << *collection1 << std::endl;
 
+    std::cout << "checking against contents of rock playlist" << std::endl;
+    printAssertEquals("Darude-SandStorm, Tenacious D-The Metal, " , collection1->printPlayList("Rock"));
+
+   collection1->addPlayList(myList2);
+    myList2.addSong(song3);
+    myList2.addSong(song2);
+
+    std::cout << "adding playlist 'pop'" << std::endl;
+    std::cout << *collection1 << std::endl;
+
+    collection1->removePlayList();
+    std::cout << "removed first playlist" << std::endl;
     std::cout << *collection1 << std::endl;
 
     /*std::cout << *collection1 << std::endl;
-    printAssertEquals("Darude-SandStorm, Tenacious D-The Metal, " , collection1->printPlayList("Rock"));
-
-    collection1->addPlayList(*myList2);
-
-    myList2->addSong(song3);
-    myList2->addSong(song1);
-    myList2->addSong(song2);
-
-    std::cout << *collection1 << std::endl;
 
     collection1->removePlayList();
     std::cout << *collection1 << std::endl;
 
-    collection1->addPlayList(*myList3);
+    collection1->addPlayList(myList3);
 
     std::cout << *collection1 << std::endl;
 
-    myList3->addSong(song1);
+    myList3.addSong(song1);
     printAssertEquals("Megadeth-Holy Wars, " , collection1->printPlayList("Metal"));
 
     collection1->removePlayList();
     collection1->removePlayList();
     collection1->removePlayList();
 
-    std::cout << *collection1 << std::endl;
+    std::cout << *collection1 << std::endl;*/
 
-*/
+    delete collection1;
+
+
 
 
 

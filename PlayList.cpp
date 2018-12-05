@@ -7,6 +7,7 @@ PlayList::PlayList(std::string newName) {
 
 PlayList::PlayList(const PlayList &playlistToCopy) {
     songlist = playlistToCopy.songlist;
+    this->name = playlistToCopy.name;
 }
 
 PlayList &PlayList::operator=(const PlayList &playlistToCopy) {
@@ -28,7 +29,12 @@ void PlayList::removeSong() {
 }
 
 int PlayList::getDuration() {
-    return songlist->getSum();
+    if(songlist->isEmpty()){
+        return 0;
+    }
+    else{
+        return songlist->getSum();
+    }
 }
 
 Song PlayList::playNext() {
