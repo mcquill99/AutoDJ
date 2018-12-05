@@ -51,8 +51,7 @@ void Song::incrementPlayCount() {
     playCount++;
 }
 
-template <class T>
-int operator+(const T& a, const Song& b) {
+int operator+(int a, const Song& b) {
     return a + b.duration;
 }
 

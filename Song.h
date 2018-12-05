@@ -22,8 +22,7 @@ public:
     int getDuration();
     int getPlayCount();
     void incrementPlayCount();
-    template <class T>
-    friend int operator+(const T& a, const Song& b);
+    friend int operator+(int a, const Song& b);
     friend bool operator==(const Song& a, const Song& b);
     friend std::ostream& operator<<(std::ostream& os, const Song& a);
     };
