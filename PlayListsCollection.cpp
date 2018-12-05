@@ -32,23 +32,18 @@ PlayListsCollection& PlayListsCollection::operator=(const PlayListsCollection &c
 
 std::string PlayListsCollection::printPlayList(std::string listName){
         int length = collection->getItemCount();
-        std::string playListString;
+        std::string playListString = "";
 
         for(int i = 0; i < length; i++){
             if(collection->getValueAt(i).getName() == listName){
                 PlayList* playList = new PlayList(collection->getValueAt(i));
                 while (!playList->isEmpty()) {
                     Song song = playList->playNext();
-                    playListString += song.getArtist() + "-" + song.getTitle() + ", ";
+                    playListString += song.getArtist() + " - " + song.getTitle() + ", ";
                 }
             }
         }
-
         return playListString;
-
-
-
-
 }
 
 void PlayListsCollection::addPlayList(const PlayList &playListToAdd){
@@ -74,9 +69,8 @@ LinkedList<PlayList>* PlayListsCollection::getCollection() const {
 
 std::ostream& operator<<(std::ostream& os, const PlayListsCollection& a) {
     int itemCount = a.getCollection()->getItemCount();
-    for(int i = 0; i < itemCount; i++){
-        os << a.getCollection()->getValueAt(i).getName() << " " << std::to_string(a.getCollection()->getValueAt(i).getDuration()) << "\n";
-    }
+    for(int i = 0; i < itemCount; i++)
+        os << a.getCollection()->getValueAt(i).getName() << " " << a.getCollection()->getValueAt(i).getDuration() << "\n";
 
     return os;
 }

@@ -39,7 +39,9 @@ int main(){
 
     std::cout<<"Next Song: "<<std::endl<<testList2->playNext()<<std::endl;
 
-    delete testList, testList2, testList3;
+    delete testList;
+    delete testList2;
+    delete testList3;
 
     std::cout << "-----PlayListsCollection-----" << std::endl;
     PlayListsCollection *collection1 = new PlayListsCollection();
