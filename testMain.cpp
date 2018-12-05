@@ -37,7 +37,7 @@ int main(){
     std::cout<<testList2->isEmpty()<<std::endl;
     std::cout<<testList3->isEmpty()<<std::endl;
 
-    testList2->removeSong(newSong2);
+    testList2->removeSong();
     std::cout<<"Removed Song: "<<testList2<<std::endl;
 
     delete testList, testList2, testList3;

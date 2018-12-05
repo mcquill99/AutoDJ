@@ -75,7 +75,7 @@ LinkedList<PlayList>* PlayListsCollection::getCollection() const {
 std::ostream& operator<<(std::ostream& os, const PlayListsCollection& a) {
     int itemCount = a.getCollection()->getItemCount();
     for(int i = 0; i < itemCount; i++){
-        os << a.getCollection()->getValueAt(i).getName() << " " << a.getCollection()->getValueAt(i).getSum() << "\n";
+        os << a.getCollection()->getValueAt(i).getName() << " " << a.getCollection()->getValueAt(i).getDuration() << "\n";
     }
 
     return os;
