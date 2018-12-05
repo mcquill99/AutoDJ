@@ -51,7 +51,7 @@ std::string PlayListsCollection::printPlayList(std::string listName){
 
 }
 
-void PlayListsCollection::addPlayList(PlayList playListToAdd){
+void PlayListsCollection::addPlayList(const PlayList &playListToAdd){
 
     collection->insertAtEnd(playListToAdd);
 
@@ -75,7 +75,7 @@ LinkedList<PlayList>* PlayListsCollection::getCollection() const {
 std::ostream& operator<<(std::ostream& os, const PlayListsCollection& a) {
     int itemCount = a.getCollection()->getItemCount();
     for(int i = 0; i < itemCount; i++){
-        os << a.getCollection()->getValueAt(i).getName() << " " << a.getCollection()->getValueAt(i).getDuration() << "\n";
+        os << a.getCollection()->getValueAt(i).getName() << " " << std::to_string(a.getCollection()->getValueAt(i).getDuration()) << "\n";
     }
 
     return os;

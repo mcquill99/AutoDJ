@@ -21,7 +21,7 @@ public:
 
     std::string printPlayList(std::string listName);
 
-    void addPlayList(PlayList playListToAdd);
+    void addPlayList(const PlayList &playListToAdd);
     void removePlayList();
 
     void addRandomPlayList();
