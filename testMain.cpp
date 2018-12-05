@@ -17,9 +17,9 @@ int main(){
     PlayList* testList = new PlayList("Playlist Test");
     PlayList* testList2 = new PlayList("Playlist Test2");
     PlayList* testList3 = new PlayList("Empty List");
-    Song newSong1 = new Song("New Patek","Lil Uzi Vert",340,0);
-    Song newSong2 = new Song("151 Rum","JID",126,0);
-    Song newSong3 = new Song("Holy Wars... The Punishment Due","Megadeth",392,0);
+    Song newSong1 = Song("New Patek","Lil Uzi Vert",340,0);
+    Song newSong2 = Song("151 Rum","JID",126,0);
+    Song newSong3 = Song("Holy Wars... The Punishment Due","Megadeth",392,0);
 
     testList->addSong(newSong1);
     testList->addSong(newSong2);
@@ -28,9 +28,9 @@ int main(){
     testList2->addSong(newSong1);
 
     std::cout<<"Print Playlists:"<<std::endl;
-    std::cout<<testList<<endl;
-    std::cout<<testList2<<endl;
-    std::cout<<testList3<<endl;
+    std::cout<<testList<<std::endl;
+    std::cout<<testList2<<std::endl;
+    std::cout<<testList3<<std::endl;
 
     std::cout<<"Is empty:"<<std::endl;
     std::cout<<testList->isEmpty()<<std::endl;
