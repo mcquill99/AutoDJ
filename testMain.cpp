@@ -39,28 +39,29 @@ int main(){
 
     std::cout<<"Next Song: "<<std::endl<<testList2->playNext()<<std::endl;
 
+
     delete testList, testList2, testList3;
 
     std::cout << "-----PlayListsCollection-----" << std::endl;
     PlayListsCollection *collection1 = new PlayListsCollection();
-    PlayList *myList = new PlayList("Rock");
-    PlayList *myList2 = new PlayList("Pop");
-    PlayList *myList3 = new PlayList("Metal");
+    PlayList myList = PlayList("Rock");
+    PlayList myList2 = PlayList("Pop");
+    PlayList myList3 = PlayList("Metal");
 
     Song song1 = Song("Darude","SandStorm",89, 0);
     Song song2 = Song("Tenacious D", "The Metal", 120, 0);
     Song song3 = Song("Megadeth", "Holy Wars", 500, 0);
     Song song4 = Song("Justin Timberlake", "Cry Me A River", 300, 0);
 
-    collection1->addPlayList(*myList);
+    collection1->addPlayList(myList);
+
+    myList.addSong(song1);
+    myList.addSong(song2);
 
     std::cout << *collection1 << std::endl;
 
-    myList->addSong(song1);
-    myList->addSong(song2);
-
-    std::cout << *collection1 << std::endl;
-    printAssertEquals("Darude-SandStorm, Tenacious D-The Metal, " , collection1->printPlayList("rock"));
+    /*std::cout << *collection1 << std::endl;
+    printAssertEquals("Darude-SandStorm, Tenacious D-The Metal, " , collection1->printPlayList("Rock"));
 
     collection1->addPlayList(*myList2);
 
@@ -86,7 +87,7 @@ int main(){
 
     std::cout << *collection1 << std::endl;
 
-
+*/
 
 
 

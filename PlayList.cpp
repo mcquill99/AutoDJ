@@ -40,7 +40,7 @@ bool PlayList::isEmpty() {
 }
 
 std::string PlayList::getName(){
-    return name;
+    return this->name;
 }
 
 std::ostream& operator<<(std::ostream& os, const PlayList& a){

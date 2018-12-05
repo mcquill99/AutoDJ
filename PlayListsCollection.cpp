@@ -32,13 +32,13 @@ PlayListsCollection& PlayListsCollection::operator=(const PlayListsCollection &c
 
 std::string PlayListsCollection::printPlayList(std::string listName){
         int length = collection->getItemCount();
-        std::string playListString;
+        std::string playListString = "";
 
         for(int i = 0; i < length; i++){
             if(collection->getValueAt(i).getName() == listName){
-                PlayList* playList = new PlayList(collection->getValueAt(i));
-                while (!playList->isEmpty()) {
-                    Song song = playList->playNext();
+                PlayList playList = PlayList(collection->getValueAt(i));
+                while (!playList.isEmpty()) {
+                    Song song = playList.playNext();
                     playListString += song.getArtist() + "-" + song.getTitle() + ", ";
                 }
             }
