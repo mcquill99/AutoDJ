@@ -51,10 +51,10 @@ void Song::incrementPlayCount() {
     playCount++;
 }
 
-int operator+(const Song& a, const Song& b) {
-    return a.duration + b.duration;
+template <class T>
+int operator+(const T& a, const Song& b) {
+    return a + b.duration;
 }
-
 
 bool operator==(const Song& a, const Song& b) {
     return a.artist == b.artist && a.title == b.title && a.duration == b.duration && a.playCount == b.playCount;

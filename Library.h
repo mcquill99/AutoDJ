@@ -13,8 +13,6 @@ private:
 public:
     Library(){}
     virtual ~Library(){}
-    virtual
-
 };
 
 
