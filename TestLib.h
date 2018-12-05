@@ -5,6 +5,9 @@
 #ifndef COMP220LAB_TESTLIBRARY_H
 #define COMP220LAB_TESTLIBRARY_H
 
+
+#include <string>
+
 /**
  * reports whether ints are equal or not
  * @param expected - the value you expect the actual value to be
