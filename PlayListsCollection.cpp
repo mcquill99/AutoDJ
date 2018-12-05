@@ -5,13 +5,13 @@
 #include "PlayListsCollection.h"
 
 PlayListsCollection::PlayListsCollection(){
-    collection = new LinkedQueue<PlayList*>();
+    collection = new LinkedList<PlayList>();
 }
 
 PlayListsCollection::PlayListsCollection(const PlayListsCollection & CollectionToCopy){
 
-    LinkedQueue<PlayList*> *toCopy = CollectionToCopy.getCollection();
-    collection = new LinkedQueue<PlayList*>(*toCopy);
+    LinkedList<PlayList> *toCopy = CollectionToCopy.getCollection();
+    //collection = new LinkedList<PlayList>(*toCopy);
 
 }
 PlayListsCollection::~PlayListsCollection(){
@@ -22,54 +22,61 @@ PlayListsCollection::~PlayListsCollection(){
 PlayListsCollection& PlayListsCollection::operator=(const PlayListsCollection &collectionToCopy){
     if(&collectionToCopy != this){
         delete collection;
+
+        LinkedList<PlayList> *toCopy = collectionToCopy.getCollection();
+        //collection = new LinkedList<PlayList>(*toCopy);
     }
 
 }
 
-std::string PlayListsCollection::allToString(){
-    std::string toString = "";
-    LinkedQueue<PlayList*> collectionCopy = LinkedQueue<PlayList*>(*collection);
 
-    while(!collectionCopy.isEmpty()){
-        PlayList *listToString = collectionCopy.dequeue();
-        toString = toString + listToString->getName(); + " " + std::to_string(listToString->getDuration()) + "\n";
-    }
+std::string PlayListsCollection::printPlayList(std::string listName){
+        int length = collection->getItemCount();
+        std::string playListString;
 
-    return toString;
-
-}
-
-std::string PlayListsCollection::toString(std::string listName){
-        LinkedQueue <PlayList*> collectionCopy = LinkedQueue<PlayList*>(*collection);
-        PlayList *listToPrint = nullptr;
-
-        while(!collectionCopy.isEmpty()){
-            PlayList *tempList = collectionCopy.dequeue();
-            if(tempList->getName() == listName){
-                listToPrint = tempList;
+        for(int i = 0; i < length; i++){
+            if(collection->getValueAt(i).getName() == listName){
+                PlayList* playList = new PlayList(collection->getValueAt(i));
+                while (!playList->isEmpty()) {
+                    Song song = playList->playNext();
+                    playListString += song.getArtist() + "-" + song.getTitle() + ", ";
+                }
             }
         }
 
-        return listToPrint->toString();
+        return playListString;
+
 
 
 
 }
 
-void PlayListsCollection::addPlayList(PlayList *playListToAdd){
-    collection->enqueue(playListToAdd);
+void PlayListsCollection::addPlayList(PlayList playListToAdd){
+
+    collection->insertAtEnd(playListToAdd);
 
 }
 
 void PlayListsCollection::removePlayList(){
-    collection->dequeue();
+    if(!collection->isEmpty()){
+        collection->removeValueAtFront();
+    }
 
 }
 
 void PlayListsCollection::addRandomPlayList(){
-
+    //TODO
 }
 
-LinkedQueue<PlayList*>* PlayListsCollection::getCollection() const {
+LinkedList<PlayList>* PlayListsCollection::getCollection() const {
     return collection;
+}
+
+std::ostream& operator<<(std::ostream& os, const PlayListsCollection& a) {
+    int itemCount = a.getCollection()->getItemCount();
+    for(int i = 0; i < itemCount; i++){
+        os << a.getCollection()->getValueAt(i).getName() << " " << a.getCollection()->getValueAt(i).getSum() << "\n";
+    }
+
+    return os;
 }

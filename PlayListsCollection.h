@@ -5,28 +5,30 @@
 #ifndef AUTODJ_PLAYLISTSCOLLECTION_H
 #define AUTODJ_PLAYLISTSCOLLECTION_H
 
-#include "LinkedQueue.h"
+#include "LinkedList.h"
 #include "PlayList.h"
+#include <random>
 
 
 class PlayListsCollection {
 private:
-    LinkedQueue<PlayList*> *collection;
+    LinkedList<PlayList> *collection;
 public:
     PlayListsCollection();
     PlayListsCollection(const PlayListsCollection& CollectionToCopy);
     PlayListsCollection& operator=(const PlayListsCollection& collectionToCopy);
     ~PlayListsCollection();
 
-    std::string allToString();
-    std::string toString(std::string listName);
+    std::string printPlayList(std::string listName);
 
-    void addPlayList(PlayList *playListToAdd);
+    void addPlayList(PlayList playListToAdd);
     void removePlayList();
 
     void addRandomPlayList();
 
-    LinkedQueue<PlayList *>* getCollection() const;
+    LinkedList<PlayList>* getCollection() const;
+
+    friend std::ostream& operator<<(std::ostream& os, const PlayListsCollection& a);
 };
 
 
