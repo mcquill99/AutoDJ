@@ -28,17 +28,16 @@ int main(){
     testList2->addSong(newSong1);
 
     std::cout<<"Print Playlists:"<<std::endl;
-    std::cout<<testList<<std::endl;
-    std::cout<<testList2<<std::endl;
-    std::cout<<testList3<<std::endl;
+    std::cout<<*testList<<std::endl;
+    std::cout<<*testList2<<std::endl;
+    std::cout<<*testList3<<std::endl;
 
     std::cout<<"Is empty:"<<std::endl;
     std::cout<<testList->isEmpty()<<std::endl;
     std::cout<<testList2->isEmpty()<<std::endl;
     std::cout<<testList3->isEmpty()<<std::endl;
 
-    testList2->removeSong();
-    std::cout<<"Removed Song: "<<testList2<<std::endl;
+    std::cout<<"Next Song: "<<std::endl<<testList2->playNext()<<std::endl;
 
     delete testList, testList2, testList3;
 
