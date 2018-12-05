@@ -7,6 +7,7 @@
 
 #include "LinkedList.h"
 #include "PlayList.h"
+#include <random>
 
 
 class PlayListsCollection {

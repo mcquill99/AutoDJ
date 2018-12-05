@@ -11,7 +11,7 @@ PlayListsCollection::PlayListsCollection(){
 PlayListsCollection::PlayListsCollection(const PlayListsCollection & CollectionToCopy){
 
     LinkedList<PlayList> *toCopy = CollectionToCopy.getCollection();
-    collection = new LinkedList<PlayList>(*toCopy);
+    //collection = new LinkedList<PlayList>(*toCopy);
 
 }
 PlayListsCollection::~PlayListsCollection(){
@@ -22,6 +22,9 @@ PlayListsCollection::~PlayListsCollection(){
 PlayListsCollection& PlayListsCollection::operator=(const PlayListsCollection &collectionToCopy){
     if(&collectionToCopy != this){
         delete collection;
+
+        LinkedList<PlayList> *toCopy = collectionToCopy.getCollection();
+        //collection = new LinkedList<PlayList>(*toCopy);
     }
 
 }
@@ -49,12 +52,15 @@ std::string PlayListsCollection::printPlayList(std::string listName){
 }
 
 void PlayListsCollection::addPlayList(PlayList playListToAdd){
+
     collection->insertAtEnd(playListToAdd);
 
 }
 
 void PlayListsCollection::removePlayList(){
-    collection->removeValueAtFront();
+    if(!collection->isEmpty()){
+        collection->removeValueAtFront();
+    }
 
 }
 
