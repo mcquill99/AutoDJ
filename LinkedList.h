@@ -15,10 +15,10 @@ private:
     LinkedNode<T>* front;
     LinkedNode<T>* end;
     int count;
-    LinkedList(const LinkedList& arrayListToCopy);
-    LinkedList& operator=(const LinkedList& arrayListToCopy);
 public:
     LinkedList();
+    LinkedList(const LinkedList& arrayListToCopy);
+    LinkedList& operator=(const LinkedList& arrayListToCopy);
     ~LinkedList();
     T& getValueAt(int index);
     bool isEmpty();
@@ -30,6 +30,9 @@ public:
     T removeValueAtEnd();
     T removeValueAtFront();
     T removeValueAt(int index);
+    friend int operator+(const LinkedList& a, const LinkedList& b) {
+        return 0; //TODO maybe implement this for real
+    }
     friend std::ostream& operator<<(std::ostream& os, const LinkedList<T>& a) {
         if (a.count == 0)
             return os << "[]";

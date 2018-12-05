@@ -88,3 +88,13 @@ bool LinkedQueue<T>::isEmpty() {
     return front == nullptr;
 }
 
+template <class T>
+int LinkedQueue<T>::getSum() {
+    int sum = 0;
+    LinkedNode<T>* curr = front;
+    while (curr != nullptr) {
+        sum += curr->getItem();
+        curr = curr->getNext();
+    }
+    return sum;
+}

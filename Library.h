@@ -8,7 +8,13 @@
 
 class Library {
 private:
+    Library(const Library& listToCopy);
+    Library& operator=(const Library& listToCopy);
 public:
+    Library(){}
+    virtual ~Library(){}
+    virtual
+
 };
 
 

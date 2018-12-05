@@ -21,6 +21,7 @@ public:
     void enqueue(const T& item);
     T dequeue();
     bool isEmpty();
+    int getSum();
     friend std::ostream& operator<<(std::ostream& os, const LinkedQueue<T>& a) {
         if (a.front == nullptr)
             return os << "[]";

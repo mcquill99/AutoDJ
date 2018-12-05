@@ -11,6 +11,45 @@ LinkedList<T>::LinkedList() {
 }
 
 template <class T>
+LinkedList<T>::LinkedList(const LinkedList& arrayListToCopy) {
+    LinkedNode<T>* copyCurr = arrayListToCopy.front;
+    LinkedNode<T>* curr = new LinkedNode<T>(*copyCurr);
+    front = curr;
+    while (copyCurr->getNext() != nullptr) {
+        copyCurr = copyCurr->getNext();
+        curr->setNext(new LinkedNode<T>(*copyCurr));
+        curr = curr->getNext();
+    }
+    end = curr;
+}
+
+template <class T>
+LinkedList<T>& LinkedList<T>::operator=(const LinkedList& arrayListToCopy) {
+    if (&arrayListToCopy != this) {
+
+        LinkedNode<T>* curr = front;
+        while (curr != nullptr) {
+            LinkedNode<T>* toDelete = curr;
+            curr = curr->getNext();
+            delete toDelete;
+        }
+        delete curr;
+        end = nullptr;
+
+        LinkedNode<T>* copyCurr = arrayListToCopy.front;
+        curr = new LinkedNode<T>(*copyCurr);
+        front = curr;
+        while (copyCurr->getNext() != nullptr) {
+            copyCurr = copyCurr->getNext();
+            curr->setNext(new LinkedNode<T>(*copyCurr));
+            curr = curr->getNext();
+        }
+        end = curr;
+    }
+    return *this;
+}
+
+template <class T>
 LinkedList<T>::~LinkedList() {
     clearList();
 }
@@ -92,7 +131,7 @@ T LinkedList<T>::removeValueAtEnd() {
     if (count == 1) {
         item = &front->getItem();
         delete front;
-        front = nullptr;
+        front = end = nullptr;
     } else {
         LinkedNode<T>* curr = front;
         while (curr->getNext()->getNext() != nullptr)
