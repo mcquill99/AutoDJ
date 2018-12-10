@@ -5,13 +5,13 @@
 #include "PlayListsCollection.h"
 
 PlayListsCollection::PlayListsCollection(){
-    collection = new LinkedList<PlayList>();
+    collection = new LinkedList<PlaylistQueue>();
 }
 
 PlayListsCollection::PlayListsCollection(const PlayListsCollection & CollectionToCopy){
 
-    LinkedList<PlayList> *toCopy = CollectionToCopy.getCollection();
-    //collection = new LinkedList<PlayList>(*toCopy);
+    LinkedList<PlaylistQueue> *toCopy = CollectionToCopy.getCollection();
+    //collection = new LinkedList<PlaylistQueue>(*toCopy);
 
 }
 PlayListsCollection::~PlayListsCollection(){
@@ -23,8 +23,8 @@ PlayListsCollection& PlayListsCollection::operator=(const PlayListsCollection &c
     if(&collectionToCopy != this){
         delete collection;
 
-        LinkedList<PlayList> *toCopy = collectionToCopy.getCollection();
-        //collection = new LinkedList<PlayList>(*toCopy);
+        LinkedList<PlaylistQueue> *toCopy = collectionToCopy.getCollection();
+        //collection = new LinkedList<PlaylistQueue>(*toCopy);
     }
 
 }
@@ -36,7 +36,7 @@ std::string PlayListsCollection::printPlayList(std::string listName){
 
         for(int i = 0; i < length; i++){
             if(collection->getValueAt(i).getName() == listName){
-                PlayList playList = PlayList(collection->getValueAt(i));
+                PlaylistQueue playList = PlaylistQueue(collection->getValueAt(i));
                 while (!playList.isEmpty()) {
                     Song song = playList.playNext();
                     playListString += song.getArtist() + "-" + song.getTitle() + ", ";
@@ -51,7 +51,7 @@ std::string PlayListsCollection::printPlayList(std::string listName){
 
 }
 
-void PlayListsCollection::addPlayList(const PlayList &playListToAdd){
+void PlayListsCollection::addPlayList(const PlaylistQueue &playListToAdd){
 
     collection->insertAtEnd(playListToAdd);
 
@@ -67,7 +67,7 @@ void PlayListsCollection::addRandomPlayList(){
     //TODO
 }
 
-LinkedList<PlayList>* PlayListsCollection::getCollection() const {
+LinkedList<PlaylistQueue>* PlayListsCollection::getCollection() const {
     return collection;
 }
 

@@ -4,7 +4,7 @@
 #include <iostream>
 #include "TestLib.h"
 #include "PlayListsCollection.h"
-#include "PlayList.h"
+#include "PlaylistQueue.h"
 #include "Song.h"
 
 int main(){
@@ -13,10 +13,10 @@ int main(){
 
 
 
-    std::cout << "-----PlayList-----" << std::endl;
-    PlayList* testList = new PlayList("Playlist Test");
-    PlayList* testList2 = new PlayList("Playlist Test2");
-    PlayList* testList3 = new PlayList("Empty List");
+    std::cout << "-----PlaylistQueue-----" << std::endl;
+    PlaylistQueue* testList = new PlaylistQueue("Playlist Test");
+    PlaylistQueue* testList2 = new PlaylistQueue("Playlist Test2");
+    PlaylistQueue* testList3 = new PlaylistQueue("Empty List");
     Song newSong1 = Song("New Patek","Lil Uzi Vert",340,0);
     Song newSong2 = Song("151 Rum","JID",126,0);
     Song newSong3 = Song("Holy Wars... The Punishment Due","Megadeth",392,0);
@@ -44,9 +44,9 @@ int main(){
 
     std::cout << "-----PlayListsCollection-----" << std::endl;
     PlayListsCollection *collection1 = new PlayListsCollection();
-    PlayList myList = PlayList("Rock");
-    PlayList myList2 = PlayList("Pop");
-    PlayList myList3 = PlayList("Metal");
+    PlaylistQueue myList = PlaylistQueue("Rock");
+    PlaylistQueue myList2 = PlaylistQueue("Pop");
+    PlaylistQueue myList3 = PlaylistQueue("Metal");
 
     Song song1 = Song("Darude","SandStorm",89, 0);
     Song song2 = Song("Tenacious D", "The Metal", 120, 0);

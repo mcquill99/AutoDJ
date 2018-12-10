@@ -1,34 +1,34 @@
-#include "PlayList.h"
+#include "PlaylistQueue.h"
 
-PlayList::PlayList(std::string newName) {
+PlaylistQueue::PlaylistQueue(std::string newName) {
     songlist = new LinkedQueue<Song>();
     this->name = newName;
 }
 
-PlayList::PlayList(const PlayList &playlistToCopy) {
+PlaylistQueue::PlaylistQueue(const PlaylistQueue &playlistToCopy) {
     songlist = playlistToCopy.songlist;
     this->name = playlistToCopy.name;
 }
 
-PlayList &PlayList::operator=(const PlayList &playlistToCopy) {
+PlaylistQueue &PlaylistQueue::operator=(const PlaylistQueue &playlistToCopy) {
     delete songlist;
     songlist = playlistToCopy.songlist;
 }
 
-PlayList::~PlayList() {
+PlaylistQueue::~PlaylistQueue() {
     delete songlist;
 }
 
-void PlayList::addSong(Song songToAdd) {
+void PlaylistQueue::addSong(Song songToAdd) {
     songlist->enqueue(songToAdd);
 }
 
-void PlayList::removeSong() {
+void PlaylistQueue::removeSong() {
     //TODO: This is completely incorrect DAMION
     songlist->dequeue();
 }
 
-int PlayList::getDuration() {
+int PlaylistQueue::getDuration() {
     if(songlist->isEmpty()){
         return 0;
     }
@@ -37,18 +37,18 @@ int PlayList::getDuration() {
     }
 }
 
-Song PlayList::playNext() {
+Song PlaylistQueue::playNext() {
     return songlist->dequeue();
 }
 
-bool PlayList::isEmpty() {
+bool PlaylistQueue::isEmpty() {
     return songlist->isEmpty();
 }
 
-std::string PlayList::getName(){
+std::string PlaylistQueue::getName(){
     return this->name;
 }
 
-std::ostream& operator<<(std::ostream& os, const PlayList& a){
+std::ostream& operator<<(std::ostream& os, const PlaylistQueue& a){
     return os << *a.songlist;
 }
