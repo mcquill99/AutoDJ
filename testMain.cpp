@@ -3,16 +3,26 @@
 //
 #include <iostream>
 #include "TestLib.h"
-#include "PlayListsCollection.h"
+#include "LinkedPlayListsCollection.h"
 #include "PlayList.h"
 #include "Song.h"
 
 int main(){
     std::cout << "-----Song-----" << std::endl;
 
+    Song* songa = new Song("artist a", "title a", 120, 0);
+    Song* songb = new Song("artist b", "artist b", 32, 3);
+    Song* songc = new Song(*songa);
 
+    std::cout << *songa << "\n" << *songb << "\n" << *songc << "\n" << std::endl;
 
+    songa->incrementPlayCount();
 
+    std::cout << *songa << "\n" << *songb << "\n" << *songc << std::endl;
+
+    delete songa;
+    delete songb;
+    delete songc;
     std::cout << "-----PlayList-----" << std::endl;
     PlayList* testList = new PlayList("Playlist Test");
     PlayList* testList2 = new PlayList("Playlist Test2");
@@ -42,8 +52,8 @@ int main(){
 
     delete testList, testList2, testList3;
 
-    std::cout << "-----PlayListsCollection-----" << std::endl;
-    PlayListsCollection *collection1 = new PlayListsCollection();
+    std::cout << "-----LinkedPlayListsCollection-----" << std::endl;
+    LinkedPlayListsCollection *collection1 = new LinkedPlayListsCollection();
     PlayList myList = PlayList("Rock");
     PlayList myList2 = PlayList("Pop");
     PlayList myList3 = PlayList("Metal");

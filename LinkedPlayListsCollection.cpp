@@ -2,24 +2,24 @@
 // Created by eostendarp on 11/27/18.
 //
 
-#include "PlayListsCollection.h"
+#include "LinkedPlayListsCollection.h"
 
-PlayListsCollection::PlayListsCollection(){
+LinkedPlayListsCollection::LinkedPlayListsCollection(){
     collection = new LinkedList<PlayList>();
 }
 
-PlayListsCollection::PlayListsCollection(const PlayListsCollection & CollectionToCopy){
+LinkedPlayListsCollection::LinkedPlayListsCollection(const LinkedPlayListsCollection & CollectionToCopy){
 
     LinkedList<PlayList> *toCopy = CollectionToCopy.getCollection();
     //collection = new LinkedList<PlayList>(*toCopy);
 
 }
-PlayListsCollection::~PlayListsCollection(){
+LinkedPlayListsCollection::~LinkedPlayListsCollection(){
     delete collection;
 
 }
 
-PlayListsCollection& PlayListsCollection::operator=(const PlayListsCollection &collectionToCopy){
+LinkedPlayListsCollection& LinkedPlayListsCollection::operator=(const LinkedPlayListsCollection &collectionToCopy){
     if(&collectionToCopy != this){
         delete collection;
 
@@ -30,7 +30,7 @@ PlayListsCollection& PlayListsCollection::operator=(const PlayListsCollection &c
 }
 
 
-std::string PlayListsCollection::printPlayList(std::string listName){
+std::string LinkedPlayListsCollection::printPlayList(std::string listName){
         int length = collection->getItemCount();
         std::string playListString = "";
 
@@ -51,27 +51,27 @@ std::string PlayListsCollection::printPlayList(std::string listName){
 
 }
 
-void PlayListsCollection::addPlayList(const PlayList &playListToAdd){
+void LinkedPlayListsCollection::addPlayList(const PlayList &playListToAdd){
 
     collection->insertAtEnd(playListToAdd);
 
 }
 
-void PlayListsCollection::removePlayList(){
+void LinkedPlayListsCollection::removePlayList(){
     if(!collection->isEmpty()){
         collection->removeValueAtFront();
     }
 }
 
-void PlayListsCollection::addRandomPlayList(){
+void LinkedPlayListsCollection::addRandomPlayList(){
     //TODO
 }
 
-LinkedList<PlayList>* PlayListsCollection::getCollection() const {
+LinkedList<PlayList>* LinkedPlayListsCollection::getCollection() const {
     return collection;
 }
 
-std::ostream& operator<<(std::ostream& os, const PlayListsCollection& a) {
+std::ostream& operator<<(std::ostream& os, const LinkedPlayListsCollection& a) {
     int itemCount = a.getCollection()->getItemCount();
     for(int i = 0; i < itemCount; i++){
         os << a.getCollection()->getValueAt(i).getName() << " " << std::to_string(a.getCollection()->getValueAt(i).getDuration()) << "\n";
