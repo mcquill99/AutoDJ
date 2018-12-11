@@ -9,7 +9,7 @@
 #include "LinkedQueue.h"
 #include "Playlist.h"
 
-class PlaylistQueue{
+class PlaylistQueue : public Playlist{
 private:
     std::string name;
     LinkedQueue<Song>* songlist;
