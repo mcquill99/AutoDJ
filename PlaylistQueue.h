@@ -20,7 +20,6 @@ public:
     ~PlaylistQueue();
     void addSong(Song songToAdd);
     void removeSong();
-    std::string toString();
     int getDuration();
     Song playNext();
     bool isEmpty();
