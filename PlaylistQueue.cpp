@@ -6,7 +6,7 @@ PlaylistQueue::PlaylistQueue(std::string newName) {
 }
 
 PlaylistQueue::PlaylistQueue(const PlaylistQueue &playlistToCopy) {
-    songlist = playlistToCopy.songlist;
+    songlist = new LinkedQueue<Song>(*playlistToCopy.songlist);
     this->name = playlistToCopy.name;
 }
 
