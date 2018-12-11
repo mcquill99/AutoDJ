@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include "Library.h"
-#include "PlayListsCollection.h"
+#include "LinkedPlayListsCollection.h"
 
 void readToLibrary(std::string libReadFile, Library& libToAdd);
 void readToPlaylistsCollection(std::string collectionReadFile, PlayListsCollection& collectionToAdd);

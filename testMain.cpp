@@ -3,20 +3,30 @@
 //
 #include <iostream>
 #include "TestLib.h"
-#include "PlayListsCollection.h"
-#include "PlaylistQueue.h"
+#include "LinkedPlayListsCollection.h"
+#include "PlayList.h"
 #include "Song.h"
 
 int main(){
     std::cout << "-----Song-----" << std::endl;
 
+    Song* songa = new Song("artist a", "title a", 120, 0);
+    Song* songb = new Song("artist b", "artist b", 32, 3);
+    Song* songc = new Song(*songa);
 
+    std::cout << *songa << "\n" << *songb << "\n" << *songc << "\n" << std::endl;
 
+    songa->incrementPlayCount();
 
-    std::cout << "-----PlaylistQueue-----" << std::endl;
-    PlaylistQueue* testList = new PlaylistQueue("Playlist Test");
-    PlaylistQueue* testList2 = new PlaylistQueue("Playlist Test2");
-    PlaylistQueue* testList3 = new PlaylistQueue("Empty List");
+    std::cout << *songa << "\n" << *songb << "\n" << *songc << std::endl;
+
+    delete songa;
+    delete songb;
+    delete songc;
+    std::cout << "-----PlayList-----" << std::endl;
+    PlayList* testList = new PlayList("Playlist Test");
+    PlayList* testList2 = new PlayList("Playlist Test2");
+    PlayList* testList3 = new PlayList("Empty List");
     Song newSong1 = Song("New Patek","Lil Uzi Vert",340,0);
     Song newSong2 = Song("151 Rum","JID",126,0);
     Song newSong3 = Song("Holy Wars... The Punishment Due","Megadeth",392,0);
@@ -42,11 +52,11 @@ int main(){
 
     delete testList, testList2, testList3;
 
-    std::cout << "-----PlayListsCollection-----" << std::endl;
-    PlayListsCollection *collection1 = new PlayListsCollection();
-    PlaylistQueue myList = PlaylistQueue("Rock");
-    PlaylistQueue myList2 = PlaylistQueue("Pop");
-    PlaylistQueue myList3 = PlaylistQueue("Metal");
+    std::cout << "-----LinkedPlayListsCollection-----" << std::endl;
+    LinkedPlayListsCollection *collection1 = new LinkedPlayListsCollection();
+    PlayList myList = PlayList("Rock");
+    PlayList myList2 = PlayList("Pop");
+    PlayList myList3 = PlayList("Metal");
 
     Song song1 = Song("Darude","SandStorm",89, 0);
     Song song2 = Song("Tenacious D", "The Metal", 120, 0);

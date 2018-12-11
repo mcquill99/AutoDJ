@@ -8,16 +8,17 @@
 #include "LinkedList.h"
 #include "PlaylistQueue.h"
 #include <random>
+#include "PlaylistCollection.h"
 
 
-class PlayListsCollection {
+class LinkedPlayListsCollection : public PlaylistCollection{
 private:
     LinkedList<PlaylistQueue> *collection;
 public:
-    PlayListsCollection();
-    PlayListsCollection(const PlayListsCollection& CollectionToCopy);
-    PlayListsCollection& operator=(const PlayListsCollection& collectionToCopy);
-    ~PlayListsCollection();
+    LinkedPlayListsCollection();
+    LinkedPlayListsCollection(const LinkedPlayListsCollection& CollectionToCopy);
+    LinkedPlayListsCollection& operator=(const LinkedPlayListsCollection& collectionToCopy);
+    ~LinkedPlayListsCollection();
 
     std::string printPlayList(std::string listName);
 
@@ -28,7 +29,7 @@ public:
 
     LinkedList<PlaylistQueue>* getCollection() const;
 
-    friend std::ostream& operator<<(std::ostream& os, const PlayListsCollection& a);
+    friend std::ostream& operator<<(std::ostream& os, const LinkedPlayListsCollection& a);
 };
 
 
