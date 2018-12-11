@@ -5,12 +5,12 @@
 #include "LinkedPlayListsCollection.h"
 
 LinkedPlayListsCollection::LinkedPlayListsCollection(){
-    collection = new LinkedList<PlayList>();
+    collection = new LinkedList<PlaylistQueue>();
 }
 
 LinkedPlayListsCollection::LinkedPlayListsCollection(const LinkedPlayListsCollection & CollectionToCopy){
 
-    LinkedList<PlayList> *toCopy = CollectionToCopy.getCollection();
+    LinkedList<PlaylistQueue> *toCopy = CollectionToCopy.getCollection();
     //collection = new LinkedList<PlayList>(*toCopy);
 
 }
@@ -23,7 +23,7 @@ LinkedPlayListsCollection& LinkedPlayListsCollection::operator=(const LinkedPlay
     if(&collectionToCopy != this){
         delete collection;
 
-        LinkedList<PlayList> *toCopy = collectionToCopy.getCollection();
+        LinkedList<PlaylistQueue> *toCopy = collectionToCopy.getCollection();
         //collection = new LinkedList<PlayList>(*toCopy);
     }
 
@@ -36,7 +36,7 @@ std::string LinkedPlayListsCollection::printPlayList(std::string listName){
 
         for(int i = 0; i < length; i++){
             if(collection->getValueAt(i).getName() == listName){
-                PlayList playList = PlayList(collection->getValueAt(i));
+                PlaylistQueue playList = PlaylistQueue(collection->getValueAt(i));
                 while (!playList.isEmpty()) {
                     Song song = playList.playNext();
                     playListString += song.getArtist() + "-" + song.getTitle() + ", ";
@@ -51,7 +51,7 @@ std::string LinkedPlayListsCollection::printPlayList(std::string listName){
 
 }
 
-void LinkedPlayListsCollection::addPlayList(const PlayList &playListToAdd){
+void LinkedPlayListsCollection::addPlayList(const PlaylistQueue &playListToAdd){
 
     collection->insertAtEnd(playListToAdd);
 
@@ -67,7 +67,7 @@ void LinkedPlayListsCollection::addRandomPlayList(){
     //TODO
 }
 
-LinkedList<PlayList>* LinkedPlayListsCollection::getCollection() const {
+LinkedList<PlaylistQueue>* LinkedPlayListsCollection::getCollection() const {
     return collection;
 }
 

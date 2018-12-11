@@ -7,7 +7,7 @@ void readToLibrary(std::string libReadFile, Library& libToAdd){
     //TODO: Finish once library is complete DAMION
 }
 
-void readToPlaylistsCollection(std::string collectionReadFile, PlayListsCollection& collectionToAdd){
+void readToPlaylistsCollection(std::string collectionReadFile, PlaylistCollection& collectionToAdd){
     std::ifstream readToCollection;
     readToCollection.open(collectionReadFile);
 }
@@ -17,7 +17,7 @@ void writeFromLibrary(std::string libWriteFile, Library& libToWrite){
     WriteFromLib.open(libWriteFile);
 }
 
-void writeFromPlaylistsCollection(std::string collectionWriteFile, PlayListsCollection& collectionToWrite){
+void writeFromPlaylistsCollection(std::string collectionWriteFile, PlaylistCollection& collectionToWrite){
     std::ofstream WriteFromCollection;
     WriteFromCollection.open(collectionWriteFile);
 }

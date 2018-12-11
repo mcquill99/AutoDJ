@@ -5,6 +5,9 @@
 #ifndef AUTODJ_PLAYLIST_H
 #define AUTODJ_PLAYLIST_H
 
+#include <iostream>
+#include "Song.h"
+
 class Playlist{
 private:
     Playlist(const Playlist& playlistToCopy);
@@ -19,7 +22,6 @@ public:
     virtual Song playNext()=0;
     virtual bool isEmpty()=0;
     virtual std::string getName()=0;
-    virtual friend std::ostream& operator<<(std::ostream& os, const PlaylistQueue& a)=0;
 };
 
 #endif //AUTODJ_PLAYLIST_H

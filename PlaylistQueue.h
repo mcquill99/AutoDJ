@@ -2,8 +2,8 @@
 // Created by eostendarp on 11/27/18.
 //
 
-#ifndef AUTODJ_PLAYLIST_H
-#define AUTODJ_PLAYLIST_H
+#ifndef AUTODJ_PLAYLISTQUEUE_H
+#define AUTODJ_PLAYLISTQUEUE_H
 
 #include "Song.h"
 #include "LinkedQueue.h"
@@ -30,4 +30,4 @@ public:
 };
 
 
-#endif //AUTODJ_PLAYLIST_H
+#endif //AUTODJ_PLAYLISTQUEUE_H

@@ -6,7 +6,7 @@
 #define AUTODJ_PLAYLISTCOLLECTION_H
 
 #include <iostream>
-#include "PlayList.h"
+#include "PlaylistQueue.h"
 #include "LinkedList.h"
 
 class PlaylistCollection {
@@ -18,10 +18,10 @@ public:
     PlaylistCollection() {}
     virtual ~PlaylistCollection() {}
     virtual std::string printPlayList(std::string listName) = 0;
-    virtual void addPlayList(const PlayList &playListToAdd) = 0;
+    virtual void addPlayList(const PlaylistQueue &playListToAdd) = 0;
     virtual void removePlayList() = 0;
     virtual void addRandomPlayList() = 0;
-    virtual LinkedList<PlayList>* getCollection() const = 0;
+    virtual LinkedList<PlaylistQueue>* getCollection() const = 0;
     friend std::ostream& operator<<(std::ostream& os, const PlaylistCollection& a);
 };
 
