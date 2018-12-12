@@ -18,7 +18,7 @@ public:
     PlaylistQueue(const PlaylistQueue& playlistToCopy);
     PlaylistQueue& operator=(const PlaylistQueue& playlistToCopy);
     ~PlaylistQueue();
-    void addSong(Song songToAdd);
+    void addSong(Song &songToAdd);
     void removeSong();
     int getDuration();
     Song playNext();

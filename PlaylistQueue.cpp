@@ -19,7 +19,7 @@ PlaylistQueue::~PlaylistQueue() {
     delete songlist;
 }
 
-void PlaylistQueue::addSong(Song songToAdd) {
+void PlaylistQueue::addSong(Song &songToAdd) {
     songlist->enqueue(songToAdd);
 }
 

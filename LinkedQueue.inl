@@ -12,14 +12,19 @@ LinkedQueue<T>::LinkedQueue() {
 template <class T>
 LinkedQueue<T>::LinkedQueue(const LinkedQueue<T>& queueToCopy) {
     LinkedNode<T>* copyCurr = queueToCopy.front;
-    LinkedNode<T>* curr = new LinkedNode<T>(*copyCurr);
-    front = curr;
-    while (copyCurr->getNext() != nullptr) {
-        copyCurr = copyCurr->getNext();
-        curr->setNext(new LinkedNode<T>(*copyCurr));
-        curr = curr->getNext();
+    if(copyCurr != nullptr){
+        LinkedNode<T>* curr = new LinkedNode<T>(*copyCurr);
+        front = curr;
+        while (copyCurr->getNext() != nullptr) {
+            copyCurr = copyCurr->getNext();
+            curr->setNext(new LinkedNode<T>(*copyCurr));
+            curr = curr->getNext();
+        }
+        end = curr;
     }
-    end = curr;
+    else if(copyCurr == nullptr){
+        end = nullptr;
+    }
 }
 
 template <class T>
