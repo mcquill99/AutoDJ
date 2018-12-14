@@ -10,7 +10,7 @@
 #include <sstream>
 
 template <class T>
-class ArrayList : public List<T> {
+class ArrayList {
 private:
     T** array;
     int itemCount, capacity;

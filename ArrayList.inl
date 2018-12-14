@@ -10,8 +10,8 @@ void ArrayList<T>::doubleCapacity() {
     capacity *= 2;
     T** temp = new T*[capacity];
     for (int i = 0; i < itemCount; i++) {
-        temp[i] = new T(*array[i]);
-        delete array[i];
+        temp[i] = array[i]; //new T(*array[i]);
+        //delete array[i];
     }
     array = temp;
 }
@@ -32,30 +32,30 @@ ArrayList<T>::ArrayList(const ArrayList& arrayListToCopy) {
     capacity = arrayListToCopy.capacity;
     array = new T*[capacity];
     for (int i = 0; i < itemCount; i++)
-        array[i] = new T(*arrayListToCopy.array[i]);
+        array[i] = arrayListToCopy.array[i]; //new T(*arrayListToCopy.array[i]);
 }
 
 template <class T>
 ArrayList<T>& ArrayList<T>::operator=(const ArrayList& arrayListToCopy) {
     if (&arrayListToCopy != this) {
-        for (int i = 0; i < itemCount; i++)
-            delete array[i];
-        delete[] array;
+//        for (int i = 0; i < itemCount; i++)
+//            delete array[i];
+//        delete[] array;
 
         itemCount = arrayListToCopy.itemCount;
         capacity = arrayListToCopy.capacity;
         array = new T*[capacity];
         for (int i = 0; i < itemCount; i++)
-            array[i] = new T(*arrayListToCopy.array[i]);
+            array[i] = arrayListToCopy.array[i]; //new T(*arrayListToCopy.array[i]);
     }
     return *this;
 }
 
 template <class T>
 ArrayList<T>::~ArrayList() {
-    for (int i = 0; i < itemCount; i++)
-        delete array[i];
-    delete[] array;
+//    for (int i = 0; i < itemCount; i++)
+//        delete array[i];
+//    delete[] array;
 }
 
 template <class T>
@@ -77,8 +77,8 @@ int ArrayList<T>::getItemCount() {
 
 template <class T>
 void ArrayList<T>::clearList() {
-    for (int i = 0; i < itemCount; ++i)
-        delete array[i];
+//    for (int i = 0; i < itemCount; ++i)
+//        delete array[i];
     itemCount = 0;
 }
 
@@ -86,7 +86,7 @@ template <class T>
 void ArrayList<T>::insertAtEnd(const T& itemToAdd) {
     if (itemCount >= capacity)
         doubleCapacity();
-    array[itemCount++] = new T(itemToAdd);
+    array[itemCount++] = itemToAdd; //new T(itemToAdd);
 }
 
 template <class T>
@@ -97,7 +97,7 @@ void ArrayList<T>::insertAtFront(const T& itemToAdd) {
     for (int i = itemCount - 1; i >= 0; i--)
         array[i + 1] = array[i];
 
-    array[0] = new T(itemToAdd);
+    array[0] = itemToAdd; //new T(itemToAdd);
     itemCount++;
 }
 
@@ -112,7 +112,7 @@ void ArrayList<T>::insertAt(const T& itemToAdd, int index) {
     for (int i = itemCount; i >= index ; i--)
         array[i + 1] = array[i];
 
-    array[index] = new T(itemToAdd);
+    array[index] = itemToAdd; //new T(itemToAdd);
     itemCount++;
 }
 
@@ -120,8 +120,8 @@ template <class T>
 T ArrayList<T>::removeValueAtEnd() {
     if (itemCount < 1)
         throw std::out_of_range("empty");
-    T* temp = new T(*array[--itemCount]);
-    delete array[itemCount];
+    T* temp = array[--itemCount]; //new T(*array[--itemCount]);
+//    delete array[itemCount];
     return *temp;
 }
 
@@ -129,8 +129,8 @@ template <class T>
 T ArrayList<T>::removeValueAtFront() {
     if (itemCount < 1)
         throw std::out_of_range("empty");
-    T* temp = new T(*array[0]);
-    delete array[0];
+    T* temp = array[0]; //new T(*array[0]);
+//    delete array[0];
     itemCount--;
     for (int i = 0; i < itemCount; i++)
         array[i] = array[i + 1];
@@ -141,8 +141,8 @@ template <class T>
 T ArrayList<T>::removeValueAt(int index) {
     if (itemCount < 1)
         throw std::out_of_range("empty");
-    T* temp = new T(*array[index]);
-    delete array[index];
+    T* temp = array[index]; //new T(*array[index]);
+//    delete array[index];
     itemCount--;
     for (int i = index; i < itemCount; i++)
         array[i] = array[i + 1];
