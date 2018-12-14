@@ -19,11 +19,11 @@ PlaylistQueue::~PlaylistQueue() {
     delete songlist;
 }
 
-void PlaylistQueue::addSong(Song songToAdd) {
+void PlaylistQueue::addSong(const Song& songToAdd) {
     songlist->enqueue(songToAdd);
 }
 
-void PlaylistQueue::removeSong() {
+void PlaylistQueue::removeSong(std::string songToRemove) {
     //TODO: This is completely incorrect DAMION
     songlist->dequeue();
 }

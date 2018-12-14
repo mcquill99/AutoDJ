@@ -21,9 +21,9 @@ public:
     virtual void insertAtEnd(const T& itemToAdd)=0;
     virtual void insertAtFront(const T& itemToAdd)=0;
     virtual void insertAt(const T& itemToAdd, int index)=0;
-    virtual T removeValueAtEnd()=0;
-    virtual T removeValueAtFront()=0;
-    virtual T removeValueAt(int index)=0;
+    //virtual T removeValueAtEnd()=0;
+    //virtual T removeValueAtFront()=0;
+    //virtual T removeValueAt(int index)=0;
 };
 
 

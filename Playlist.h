@@ -15,8 +15,8 @@ private:
 public:
     Playlist() {}
     virtual ~Playlist() {}
-    virtual void addSong(Song songToAdd)=0;
-    virtual void removeSong()=0;
+    virtual void addSong(const Song& songToAdd)=0;
+    virtual void removeSong(std::string songToRemove)=0;
     virtual int getDuration()=0;
     virtual Song playNext()=0;
     virtual bool isEmpty()=0;

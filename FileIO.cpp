@@ -12,7 +12,7 @@ void readToLibrary(std::string libReadFile, Library& libToAdd){
         getline(ss,name,',');
         getline(ss,duration,',');
         getline(ss,playcount,',');
-        libToAdd.addSong(new Song(artist,name,std::stoi(duration),std::stoi(playcount)));
+        //libToAdd.addSong(new Song(artist,name,std::stoi(duration),std::stoi(playcount)));
     }
 }
 
@@ -23,7 +23,7 @@ void readToPlaylistsCollection(std::string collectionReadFile, PlaylistCollectio
     while(getline(readToCollection,word)){
         std::stringstream ss(word);
         std::string playlistName;
-        collectionToAdd.addSong();
+        //collectionToAdd.addSong();
     }
 }
 
