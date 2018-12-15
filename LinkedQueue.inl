@@ -13,11 +13,11 @@ template <class T>
 LinkedQueue<T>::LinkedQueue(const LinkedQueue<T>& queueToCopy) {
     LinkedNode<T>* copyCurr = queueToCopy.front;
     if(copyCurr != nullptr){
-        LinkedNode<T>* curr = new LinkedNode<T>(*copyCurr);
+        LinkedNode<T>* curr = copyCurr; //new LinkedNode<T>(*copyCurr);
         front = curr;
         while (copyCurr->getNext() != nullptr) {
             copyCurr = copyCurr->getNext();
-            curr->setNext(new LinkedNode<T>(*copyCurr));
+            curr->setNext(copyCurr); //new LinkedNode<T>(*copyCurr));
             curr = curr->getNext();
         }
         end = curr;
@@ -32,20 +32,20 @@ LinkedQueue<T>& LinkedQueue<T>::operator=(const LinkedQueue<T>& queueToCopy) {
     if (&queueToCopy != this) {
 
         LinkedNode<T>* curr = front;
-        while (curr != nullptr) {
-            LinkedNode<T>* toDelete = curr;
-            curr = curr->getNext();
-            delete toDelete;
-        }
-        delete curr;
+//        while (curr != nullptr) {
+//            LinkedNode<T>* toDelete = curr;
+//            curr = curr->getNext();
+//            delete toDelete;
+//        }
+//        delete curr;
         end = nullptr;
 
         LinkedNode<T>* copyCurr = queueToCopy.front;
-        curr = new LinkedNode<T>(*copyCurr);
+        curr = copyCurr; //new LinkedNode<T>(*copyCurr);
         front = curr;
         while (copyCurr->getNext() != nullptr) {
             copyCurr = copyCurr->getNext();
-            curr->setNext(new LinkedNode<T>(*copyCurr));
+            curr->setNext(copyCurr); //new LinkedNode<T>(*copyCurr));
             curr = curr->getNext();
         }
         end = curr;
@@ -55,17 +55,17 @@ LinkedQueue<T>& LinkedQueue<T>::operator=(const LinkedQueue<T>& queueToCopy) {
 
 template <class T>
 LinkedQueue<T>::~LinkedQueue() {
-    LinkedNode<T>* curr = front;
-    while (curr != nullptr) {
-        LinkedNode<T>* toDelete = curr;
-        curr = curr->getNext();
-        delete toDelete;
-    }
+//    LinkedNode<T>* curr = front;
+//    while (curr != nullptr) {
+//        LinkedNode<T>* toDelete = curr;
+//        curr = curr->getNext();
+//        delete toDelete;
+//    }
 }
 
 template <class T>
 void LinkedQueue<T>::enqueue(const T& item) {
-    LinkedNode<T>* newNode = new LinkedNode<T>(item);
+    LinkedNode<T>* newNode = item; //new LinkedNode<T>(item);
     //if front is nullptr, end should be nullptr too
     if (front == nullptr){
         front = newNode;
