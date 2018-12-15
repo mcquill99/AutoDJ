@@ -13,11 +13,11 @@ LinkedList<T>::LinkedList() {
 template <class T>
 LinkedList<T>::LinkedList(const LinkedList& arrayListToCopy) {
     LinkedNode<T>* copyCurr = arrayListToCopy.front;
-    LinkedNode<T>* curr = new LinkedNode<T>(*copyCurr);
+    LinkedNode<T>* curr = copyCurr; //new LinkedNode<T>(*copyCurr);
     front = curr;
     while (copyCurr->getNext() != nullptr) {
         copyCurr = copyCurr->getNext();
-        curr->setNext(new LinkedNode<T>(*copyCurr));
+        curr->setNext(copyCurr); //new LinkedNode<T>(*copyCurr));
         curr = curr->getNext();
     }
     end = curr;
@@ -28,20 +28,20 @@ LinkedList<T>& LinkedList<T>::operator=(const LinkedList& arrayListToCopy) {
     if (&arrayListToCopy != this) {
 
         LinkedNode<T>* curr = front;
-        while (curr != nullptr) {
-            LinkedNode<T>* toDelete = curr;
-            curr = curr->getNext();
-            delete toDelete;
-        }
-        delete curr;
-        end = nullptr;
+//        while (curr != nullptr) {
+//            LinkedNode<T>* toDelete = curr;
+//            curr = curr->getNext();
+//            delete toDelete;
+//        }
+//        delete curr;
+//        end = nullptr;
 
         LinkedNode<T>* copyCurr = arrayListToCopy.front;
-        curr = new LinkedNode<T>(*copyCurr);
+        curr = copyCurr; //new LinkedNode<T>(*copyCurr);
         front = curr;
         while (copyCurr->getNext() != nullptr) {
             copyCurr = copyCurr->getNext();
-            curr->setNext(new LinkedNode<T>(*copyCurr));
+            curr->setNext(copyCurr); //new LinkedNode<T>(*copyCurr));
             curr = curr->getNext();
         }
         end = curr;
@@ -86,7 +86,7 @@ void LinkedList<T>::insertAtEnd(const T& itemToAdd) {
     if (front == nullptr)
         insertAtFront(itemToAdd);
     else {
-        end->setNext(new LinkedNode<T>(itemToAdd));
+        end->setNext(itemToAdd); //new LinkedNode<T>(itemToAdd));
         end = end->getNext();
         count++;
     }
@@ -94,7 +94,7 @@ void LinkedList<T>::insertAtEnd(const T& itemToAdd) {
 
 template <class T>
 void LinkedList<T>::insertAtFront(const T& itemToAdd) {
-    LinkedNode<T>* newNode = new LinkedNode<T>(itemToAdd);
+    LinkedNode<T>* newNode = itemToAdd; //new LinkedNode<T>(itemToAdd);
     newNode->setNext(front);
     if (front == nullptr)
         end = newNode;
@@ -115,7 +115,7 @@ void LinkedList<T>::insertAt(const T& itemToAdd, int index) {
         LinkedNode<T>* curr = front;
         for (int i = 0; i < index - 1; i++)
             curr = curr->getNext();
-        LinkedNode<T>* newNode = new LinkedNode<T>(itemToAdd);
+        LinkedNode<T>* newNode = itemToAdd; //new LinkedNode<T>(itemToAdd);
         newNode->setNext(curr->getNext());
         curr->setNext(newNode);
         count++;
@@ -130,7 +130,7 @@ T LinkedList<T>::removeValueAtEnd() {
     T* item;
     if (count == 1) {
         item = &front->getItem();
-        delete front;
+        //delete front;
         front = end = nullptr;
     } else {
         LinkedNode<T>* curr = front;
@@ -138,7 +138,7 @@ T LinkedList<T>::removeValueAtEnd() {
             curr = curr->getNext();
         LinkedNode<T>* end = curr->getNext();
         item = &end->getItem();
-        delete end;
+        //delete end;
         curr->setNext(nullptr);
     }
     count--;
@@ -152,7 +152,7 @@ T LinkedList<T>::removeValueAtFront() {
 
     LinkedNode<T>* newFront = front->getNext();
     T item = front->getItem();
-    delete front;
+    //delete front;
     front = newFront;
     count--;
     return item;
@@ -174,7 +174,7 @@ T LinkedList<T>::removeValueAt(int index) {
         LinkedNode<T>* toRemove = curr->getNext();
         T item = toRemove->getItem();
         curr->setNext(toRemove->getNext());
-        delete toRemove;
+        //delete toRemove;
         count--;
         return item;
     }
