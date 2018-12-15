@@ -58,4 +58,3 @@ void ArrayListLibrary::loadLibrary(std::string fileName) {
 ArrayList<Song> ArrayListLibrary::getLibrary() const{
     return *libOfSongs;
 }
-
