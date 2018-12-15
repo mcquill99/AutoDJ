@@ -58,6 +58,22 @@ int operator+(int a, const Song& b) {
 bool operator==(const Song& a, const Song& b) {
     return a.artist == b.artist && a.title == b.title && a.duration == b.duration && a.playCount == b.playCount;
 }
+bool operator<(const Song& a, const Song& b){
+    if(a.artist == b.artist){
+        if(a.title == b.title || a.title > b.title){
+            return false;
+        }
+        else if( a.title < b.title){
+            return true;
+        }
+    }
+    else if(a.artist < b.artist){
+        return true;
+    }
+    else if(a.artist > b.artist){
+        return false;
+    }
+}
 
 std::ostream& operator<<(std::ostream& os, const Song& a) {
     return os << "<" << a.artist << " - " << a.title << ", " << a.duration / 60 << ":" << std::setfill('0') << std::setw(2) << a.duration % 60 << ", plays: " << a.playCount << ">";
