@@ -5,10 +5,8 @@
 #ifndef AUTODJ_LIBRARY_H
 #define AUTODJ_LIBRARY_H
 
-
 #include <string>
 #include "Song.h"
-#include "FileIO.h"
 
 class Library {
 private:

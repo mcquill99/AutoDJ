@@ -65,7 +65,7 @@ LinkedQueue<T>::~LinkedQueue() {
 
 template <class T>
 void LinkedQueue<T>::enqueue(const T& item) {
-    LinkedNode<T>* newNode = item; //new LinkedNode<T>(item);
+    LinkedNode<T>* newNode = new LinkedNode<T>(item);
     //if front is nullptr, end should be nullptr too
     if (front == nullptr){
         front = newNode;

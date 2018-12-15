@@ -1,9 +1,6 @@
 #include <string>
-#include <iostream>
-#include <fstream>
 #include "Library.h"
-#include "LinkedPlayListsCollection.h"
-private:
+#include "PlaylistCollection.h"
 
 void readToLibrary(std::string libReadFile, Library& libToAdd);
 void readToPlaylistsCollection(std::string collectionReadFile, PlaylistCollection& collectionToAdd);
