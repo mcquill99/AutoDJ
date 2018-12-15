@@ -97,7 +97,7 @@ void ArrayList<T>::insertAtFront(const T& itemToAdd) {
     for (int i = itemCount - 1; i >= 0; i--)
         array[i + 1] = array[i];
 
-    array[0] = itemToAdd; //new T(itemToAdd);
+    array[0] = new T(itemToAdd);
     itemCount++;
 }
 
@@ -112,7 +112,7 @@ void ArrayList<T>::insertAt(const T& itemToAdd, int index) {
     for (int i = itemCount; i >= index ; i--)
         array[i + 1] = array[i];
 
-    array[index] = itemToAdd; //new T(itemToAdd);
+    array[index] = new T(itemToAdd);
     itemCount++;
 }
 

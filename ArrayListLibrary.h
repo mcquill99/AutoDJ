@@ -20,8 +20,8 @@ public:
     void addSong(Song &songToAdd);
     void removeSong(Song &songToRemove);
     std::string toString();
-    void saveLibrary(std::string fileName);
-    void loadLibrary(std::string fileName);
+//    void saveLibrary(std::string fileName);
+//    void loadLibrary(std::string fileName);
     ArrayList<Song> getLibrary() const;
 
 

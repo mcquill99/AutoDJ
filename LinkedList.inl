@@ -86,7 +86,7 @@ void LinkedList<T>::insertAtEnd(const T& itemToAdd) {
     if (front == nullptr)
         insertAtFront(itemToAdd);
     else {
-        end->setNext(itemToAdd); //new LinkedNode<T>(itemToAdd));
+        end->setNext(new LinkedNode<T>(itemToAdd));
         end = end->getNext();
         count++;
     }
@@ -94,7 +94,7 @@ void LinkedList<T>::insertAtEnd(const T& itemToAdd) {
 
 template <class T>
 void LinkedList<T>::insertAtFront(const T& itemToAdd) {
-    LinkedNode<T>* newNode = itemToAdd; //new LinkedNode<T>(itemToAdd);
+    LinkedNode<T>* newNode = new LinkedNode<T>(itemToAdd);
     newNode->setNext(front);
     if (front == nullptr)
         end = newNode;
@@ -115,7 +115,7 @@ void LinkedList<T>::insertAt(const T& itemToAdd, int index) {
         LinkedNode<T>* curr = front;
         for (int i = 0; i < index - 1; i++)
             curr = curr->getNext();
-        LinkedNode<T>* newNode = itemToAdd; //new LinkedNode<T>(itemToAdd);
+        LinkedNode<T>* newNode = new LinkedNode<T>(itemToAdd);
         newNode->setNext(curr->getNext());
         curr->setNext(newNode);
         count++;

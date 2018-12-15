@@ -3,6 +3,7 @@
 //
 
 #include "ArrayListLibrary.h"
+#include "FileIO.h"
 
 ArrayListLibrary::ArrayListLibrary() {
     libOfSongs = new ArrayList<Song>();
@@ -46,15 +47,15 @@ std::string ArrayListLibrary::toString(){
 
 }
 
-void ArrayListLibrary::saveLibrary(std::string fileName) {
-    writeFromLibrary(fileName, this);
+//void ArrayListLibrary::saveLibrary(std::string fileName) {
+//    writeFromLibrary(fileName, this);
+//
+//}
+//
+//void ArrayListLibrary::loadLibrary(std::string fileName) {
+//    readToLibrary(fileName, this);
+//}
 
-}
-
-void ArrayListLibrary::loadLibrary(std::string fileName) {
-    readToLibrary(fileName, this);
-
-}
 ArrayList<Song> ArrayListLibrary::getLibrary() const{
     return *libOfSongs;
 }
