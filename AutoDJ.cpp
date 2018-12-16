@@ -3,9 +3,11 @@
 //
 
 #include <iostream>
+#include "ArrayListLibrary.h"
 
 int main(){
     bool loop = true;
+    Library *currLib = new ArrayListLibrary();
     std::cout << "Welcome to our Auto DJ!" << std::endl;
     while(loop){
         std::cout << "What would you like to do?: " << std::endl;
@@ -28,16 +30,27 @@ int main(){
                          "newrandom - makes a new playlist with a given name and puts random songs in the playlist to fill it as close to the given duration as possible" << std::endl;
         }
         else if(toDo == "library"){
-            //std::cout
+            std::cout << currLib->toString() << std::endl;
 
         }
         else if(toDo == "artist"){
-
+            std::cout << "What artist would you like to see?: " << std::endl;
+            std::string artist;
+            std::cin >> artist;
+            //std::cout <<
         }
         else if(toDo == "song"){
+            std::cout << "What song would you like to see information for: " << std::endl;
+            std::string song;
+            std::cin >> song;
+            //std::cout
 
         }
         else if(toDo == "import"){
+            std::cout << "Whats the name of the file you want to import?: " << std::endl;
+            std::string fileName;
+            std::cin >> fileName;
+
 
         }
         else if(toDo == "discontinue"){
