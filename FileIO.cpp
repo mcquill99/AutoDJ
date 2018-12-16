@@ -48,6 +48,7 @@ void writeFromLibrary(std::string libWriteFile, ArrayListLibrary& libToWrite){
 void writeFromPlaylistsCollection(std::string collectionWriteFile, PlaylistCollection& collectionToWrite){
     std::ofstream WriteFromCollection;
     WriteFromCollection.open(collectionWriteFile);
+    //TODO: Damion you better format a goddamn playlist
 }
 /*
  * list of new songs to add to library
@@ -69,8 +70,22 @@ void addSongs(std::string songsAddFile, Library& libToAdd){
 /*
  * list of songs to remove from library and ALL playlists
  */
-void removeSongs(std::string songsRemoveFile, Library& libToRemove){
+void removeSongs(std::string songsRemoveFile, ArrayListLibrary& libToRemove){
     std::ifstream songsToRemove;
     songsToRemove.open(songsRemoveFile);
+    std::string word = "";
+    while(getline(songsToRemove,word)){
+        std::stringstream ss(word);
+        std::string artist,name,duration,playcount;
+        getline(ss,artist,',');
+        getline(ss,name,',');
+        getline(ss,duration,',');
+        getline(ss,playcount,',');
+        for(int i = 0; i < libToRemove.libOfSongs->getItemCount(); i++){
+            if(libToRemove.libOfSongs->getValueAt(i).getArtist() == artist && libToRemove.libOfSongs->getValueAt(i).getTitle() == name ){
+                libToRemove.removeSong(libToRemove.libOfSongs->getValueAt(i));
+            }
+        }
+        }
 
 }

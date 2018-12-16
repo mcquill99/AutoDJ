@@ -19,7 +19,7 @@ public:
     PlaylistQueue& operator=(const PlaylistQueue& playlistToCopy);
     ~PlaylistQueue();
     void addSong(const Song& songToAdd);
-    void removeSong(std::string songToRemove);
+    void removeSong(std::string songToRemoveArtist, std::string songToRemoveName);
     int getDuration();
     Song playNext();
     bool isEmpty();
