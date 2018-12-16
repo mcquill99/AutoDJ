@@ -2,8 +2,8 @@
 #include <fstream>
 #include "ArrayListLibrary.h"
 /*
- * This function reads a list of songs from a previously saved library written to some file libReadFile
- */
+* This function reads a list of songs from a previously saved library written to some file libReadFile
+*/
 void readToLibrary(std::string libReadFile, Library& libToAdd){
     std::ifstream readToLib;
     readToLib.open(libReadFile);
@@ -38,8 +38,8 @@ void readToPlaylistsCollection(std::string collectionReadFile, PlaylistCollectio
 void writeFromLibrary(std::string libWriteFile, ArrayListLibrary& libToWrite){
     std::ofstream WriteFromLib;
     WriteFromLib.open(libWriteFile);
-    for(Song* temp : libToWrite.libOfSongs){
-        WriteFromLib<<temp->getArtist()<<","<<temp->getTitle()<<","<<temp->getDuration()<<","<<temp->getPlayCount()<<"\n";
+    for(int i = 0; i < libToWrite.libOfSongs->getItemCount(); i++){
+        WriteFromLib<<libToWrite.libOfSongs->getValueAt(i).getArtist()<<","<<libToWrite.libOfSongs->getValueAt(i).getTitle()<<","<<libToWrite.libOfSongs->getValueAt(i).getDuration()<<","<<libToWrite.libOfSongs->getValueAt(i).getPlayCount()<<"\n";
     }
 }
 /*
