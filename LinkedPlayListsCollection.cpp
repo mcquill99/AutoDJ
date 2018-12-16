@@ -11,7 +11,7 @@ LinkedPlayListsCollection::LinkedPlayListsCollection(){
 LinkedPlayListsCollection::LinkedPlayListsCollection(const LinkedPlayListsCollection & CollectionToCopy){
 
     LinkedList<PlaylistQueue> *toCopy = CollectionToCopy.getCollection();
-    //collection = new LinkedList<PlayList>(*toCopy);
+    collection = new LinkedList<PlaylistQueue>(*toCopy);
 
 }
 LinkedPlayListsCollection::~LinkedPlayListsCollection(){
@@ -24,7 +24,7 @@ LinkedPlayListsCollection& LinkedPlayListsCollection::operator=(const LinkedPlay
         delete collection;
 
         LinkedList<PlaylistQueue> *toCopy = collectionToCopy.getCollection();
-        //collection = new LinkedList<PlayList>(*toCopy);
+        collection = new LinkedList<PlaylistQueue>(*toCopy);
     }
 
 }

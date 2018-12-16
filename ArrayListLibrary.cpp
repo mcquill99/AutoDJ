@@ -6,7 +6,7 @@
 #include "FileIO.h"
 
 ArrayListLibrary::ArrayListLibrary() {
-    libOfSongs = new ArrayList<Song>();
+    libOfSongs = new ArrayList<Song>(20);
 }
 ArrayListLibrary::~ArrayListLibrary() {
     delete libOfSongs;

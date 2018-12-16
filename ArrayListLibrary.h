@@ -12,8 +12,9 @@
 
 class ArrayListLibrary : public Library {
 private:
-    ArrayList<Song>* libOfSongs;
 public:
+    ArrayList<Song>* libOfSongs;
+
     ArrayListLibrary();
     ~ArrayListLibrary();
     ArrayListLibrary& operator=(const ArrayListLibrary& playlistToCopy);
