@@ -28,7 +28,7 @@ int main(){
                          "newrandom - makes a new playlist with a given name and puts random songs in the playlist to fill it as close to the given duration as possible" << std::endl;
         }
         else if(toDo == "library"){
-            std::cout
+            //std::cout
 
         }
         else if(toDo == "artist"){
