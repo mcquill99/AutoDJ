@@ -24,7 +24,7 @@ public:
     bool isEmpty();
     int getItemCount();
     void clearList();
-    void insertAtEnd(const T& itemToAdd);
+    void insertAtEnd(const T &itemToAdd);
     void insertAtFront(const T& itemToAdd);
     void insertAt(const T& itemToAdd, int index);
     T removeValueAtEnd();

@@ -43,8 +43,25 @@ void ArrayListLibrary::removeSong(Song &songToRemove) {
     }
 }
 
-std::string ArrayListLibrary::toString(){
+Song& ArrayListLibrary::getSong(int index) const {
+    return libOfSongs->getValueAt(index);
+}
 
+int ArrayListLibrary::getSize() const {
+    return libOfSongs->getItemCount();
+}
+
+std::string ArrayListLibrary::toString(){
+    if (libOfSongs->getItemCount() <= 0)
+        return "[]";
+
+    std::ostringstream out;
+    out << "[";
+    int length = libOfSongs->getItemCount();
+    for (int i = 0; i < length - 1; i++)
+        out << libOfSongs->getValueAt(i) << ", ";
+    out << libOfSongs->getValueAt(length - 1) << "]";
+    return out.str();
 }
 
 //void ArrayListLibrary::saveLibrary(std::string fileName) {

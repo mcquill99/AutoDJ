@@ -19,6 +19,8 @@ public:
     ArrayListLibrary& operator=(const ArrayListLibrary& playlistToCopy);
     void addSong(Song &songToAdd);
     void removeSong(Song &songToRemove);
+    Song& getSong(int index) const ;
+    int getSize() const;
     std::string toString();
 //    void saveLibrary(std::string fileName);
 //    void loadLibrary(std::string fileName);

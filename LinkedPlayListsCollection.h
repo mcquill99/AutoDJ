@@ -22,10 +22,10 @@ public:
 
     std::string printPlayList(std::string listName);
 
-    void addPlayList(const PlaylistQueue &playListToAdd);
+    void addPlayList(const PlaylistQueue& playListToAdd);
     void removePlayList();
 
-    void addRandomPlayList();
+    void addRandomPlayList(int size, const Library& lib);
 
     LinkedList<PlaylistQueue>* getCollection() const;
 
