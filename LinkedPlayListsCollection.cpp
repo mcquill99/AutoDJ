@@ -50,6 +50,7 @@ std::string LinkedPlayListsCollection::printPlayList(std::string listName){
                     newPlayList->addSong(song);
                 }
                 playListString = playListString + std::to_string(newPlayList->getDuration());
+                collection->removeValueAt(i);
                 collection->insertAt(*newPlayList,index);
             }
         }

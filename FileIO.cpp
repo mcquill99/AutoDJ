@@ -6,7 +6,7 @@
 /*
 * This function reads a list of songs from a previously saved library written to some file libReadFile
 */
-std::string readToLibrary(std::string libReadFile, ArrayListLibrary& libToAdd){
+std::string readToLibrary(std::string libReadFile, Library& libToAdd){
     std::ifstream readToLib;
     readToLib.open(libReadFile);
     std::string word = "";
@@ -58,7 +58,7 @@ void readToPlaylistsCollection(std::string collectionReadFile, PlaylistCollectio
 /*
  * write the current library into a file to read later
  */
-void writeFromLibrary(std::string libWriteFile, ArrayListLibrary& libToWrite){
+void writeFromLibrary(std::string libWriteFile, Library& libToWrite){
     std::ofstream ofs;
     ofs.open(libWriteFile, std::ofstream::out | std::ofstream::trunc);
     ofs.close();
@@ -90,7 +90,7 @@ void writeFromPlaylistsCollection(std::string collectionWriteFile, PlaylistColle
 /*
  * list of new songs to add to library
  */
-void addSongs(std::string songsAddFile, ArrayListLibrary& libToAdd){
+void addSongs(std::string songsAddFile, Library& libToAdd){
     std::ifstream songsToAdd;
     songsToAdd.open(songsAddFile);
     std::string word = "";
@@ -107,7 +107,7 @@ void addSongs(std::string songsAddFile, ArrayListLibrary& libToAdd){
 /*
  * list of songs to remove from library and ALL playlists
  */
-void removeSongs(std::string songsRemoveFile, ArrayListLibrary& libToRemove, LinkedPlayListsCollection& playlists){
+void removeSongs(std::string songsRemoveFile, Library& libToRemove, LinkedPlayListsCollection& playlists){
     std::ifstream songsToRemove;
     songsToRemove.open(songsRemoveFile);
     std::string word = "";
