@@ -106,7 +106,10 @@ int LinkedQueue<T>::getSum() {
 template <class T>
 void LinkedQueue<T>::removeFromMiddle(T &songToRemove) {
     LinkedNode<T>* temp = front;
-    bool isEqual = temp->getItem() == songToRemove;
+    if(front->getItem() == songToRemove){
+        front = nullptr;
+        return;
+    }
     while(!(temp->getNext()->getItem() == songToRemove)){
         temp = temp->getNext();
         if(temp->getNext() == nullptr){
@@ -115,5 +118,4 @@ void LinkedQueue<T>::removeFromMiddle(T &songToRemove) {
     }
     LinkedNode<T>* nextNode = temp->getNext()->getNext();
     temp->setNext(nextNode);
-
 }

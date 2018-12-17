@@ -90,7 +90,7 @@ void writeFromPlaylistsCollection(std::string collectionWriteFile, PlaylistColle
 /*
  * list of new songs to add to library
  */
-void addSongs(std::string songsAddFile, ArrayListLibrary& libToAdd){
+void addSongs(std::string songsAddFile, Library& libToAdd){
     std::ifstream songsToAdd;
     songsToAdd.open(songsAddFile);
     std::string word = "";
@@ -107,7 +107,7 @@ void addSongs(std::string songsAddFile, ArrayListLibrary& libToAdd){
 /*
  * list of songs to remove from library and ALL playlists
  */
-void removeSongs(std::string songsRemoveFile, ArrayListLibrary& libToRemove, LinkedPlayListsCollection& playlists){
+void removeSongs(std::string songsRemoveFile, Library& libToRemove, LinkedPlayListsCollection& playlists){
     std::ifstream songsToRemove;
     songsToRemove.open(songsRemoveFile);
     std::string word = "";
