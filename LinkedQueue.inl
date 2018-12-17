@@ -108,6 +108,9 @@ void LinkedQueue<T>::removeFromMiddle(T &songToRemove) {
     LinkedNode<T>* temp = front;
     bool isEqual = temp->getItem() == songToRemove;
     while(!isEqual){
+        if(temp->getNext() == nullptr){
+            return;
+        }
         temp = temp->getNext();
     }
     LinkedNode<T>* nextNode = temp->getNext();
