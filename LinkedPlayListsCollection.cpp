@@ -33,15 +33,24 @@ LinkedPlayListsCollection& LinkedPlayListsCollection::operator=(const LinkedPlay
 std::string LinkedPlayListsCollection::printPlayList(std::string listName){
         int length = collection->getItemCount();
         std::string playListString = "";
+        bool copy = true;
 
         for(int i = 0; i < length; i++){
-            if(collection->getValueAt(i).getName() == listName){
+            if(collection->getValueAt(i).getName() == listName && copy == true){
+                int index = i;
+                copy = false;
+
                 PlaylistQueue playList = PlaylistQueue(collection->getValueAt(i));
+                PlaylistQueue *newPlayList = new PlaylistQueue(playList.getName());
                 playListString = playListString + playList.getName() + ": ";
+
                 while (!playList.isEmpty()) {
                     Song song = playList.playNext();
                     playListString += song.getArtist() + "-" + song.getTitle() + ", ";
+                    newPlayList->addSong(song);
                 }
+                playListString = playListString + std::to_string(newPlayList->getDuration());
+                collection->insertAt(*newPlayList,index);
             }
         }
 

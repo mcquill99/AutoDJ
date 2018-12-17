@@ -15,8 +15,8 @@ int main(){
     std::cout << "Welcome to our Auto DJ!" << std::endl;
     while(loop){
         std::cout << "What would you like to do?: " << std::endl;
-        std::string toDo = "";
-        std::cin >> toDo;
+        std::string toDo;
+        std::getline(std::cin ,toDo);
 
         if(toDo == "help"){
             std::cout << "help - list commands \n "
@@ -40,16 +40,18 @@ int main(){
         else if(toDo == "artist"){
             std::cout << "What artist would you like to see?: " << std::endl;
             std::string artist;
-            std::cin >> artist;
+            std::cin.ignore();
+            std::getline(std::cin ,artist);
             std::cout << currLib->printArtistSongs(artist)<< std::endl;
         }
         else if(toDo == "song"){
             std::cout << "What artist is the song by? " << std::endl;
             std::string artist;
-            std::cin >> artist;
+            std::cin.ignore();
+            std::getline(std::cin ,artist);
             std::cout << "What is the name of the song?" << std::endl;
             std::string song;
-            std::cin >> song;
+            std::getline(std::cin ,song);
 
             std::string toPrint = currLib->returnSong(artist, song);
             if(toPrint == ""){
@@ -63,7 +65,8 @@ int main(){
         else if(toDo == "import"){
             std::cout << "Whats the name of the file you want to import?: " << std::endl;
             std::string fileName;
-            std::cin >> fileName;
+            //std::cin.ignore();
+            std::getline(std::cin ,fileName);
 
             std::ifstream ifile(fileName);
             if(!ifile){
@@ -85,7 +88,8 @@ int main(){
         else if(toDo == "discontinue"){
             std::cout << "Whats the name of the file you want to discontinue?: " << std::endl;
             std::string fileName;
-            std::cin >> fileName;
+            std::cin.ignore();
+            std::getline(std::cin ,fileName);
 
         }
         else if(toDo == "playlists"){
@@ -95,7 +99,8 @@ int main(){
         else if(toDo == "playlist"){
             std::cout << "What is the name of the playlist you want to see? :" << std::endl;
             std::string name;
-            std::cin >> name;
+            std::cin.ignore();
+            std::getline(std::cin ,name);
 
             std::string toPrint = currCollection->printPlayList(name);
             if(toPrint == ""){
@@ -109,7 +114,8 @@ int main(){
         else if(toDo == "new"){
             std::cout << "What do you want to name your playlist?" << std::endl;
             std::string name;
-            std::cin >> name;
+            //std::cin.ignore();
+            std::getline(std::cin ,name);
             currCollection->addPlayList(*new PlaylistQueue(name));
             std::cout << "Playlist added successfully" << std::endl;
 
@@ -118,7 +124,9 @@ int main(){
         else if(toDo == "add"){
             std::cout << "Whats the name of the playlist you want to add a song to? " << std::endl;
             std::string playListName;
-            std::cin >> playListName;
+            //std::cin.ignore();
+            std::getline(std::cin ,playListName);
+
 
             std::string check = currCollection->printPlayList(playListName);
             if(check == ""){
@@ -127,10 +135,14 @@ int main(){
             else{
                 std::cout << "Whats the name of the artist who made the song" << std::endl;
                 std::string artist;
-                std::cin >> artist;
+                //std::cin.ignore();
+                std::getline(std::cin ,artist);
                 std::cout << "Whats the title of the song?" << std::endl;
                 std::string title;
-                std::cin >> title;
+                //std::cin.ignore();
+                std::getline(std::cin ,title);
+
+                std::cout << "What you entered: " + artist + " " + title<< std::endl;
 
                 if(currLib->findSongIndex(artist, title) == -1){
                     std::cout << "Sorry, I don't seem to have that song in my library" << std::endl;
@@ -146,7 +158,8 @@ int main(){
         else if(toDo == "remove"){
             std::cout << "Whats the name of the playlist you want to remove a song from? " << std::endl;
             std::string playListName;
-            std::cin >> playListName;
+            std::cin.ignore();
+            std::getline(std::cin ,playListName);
 
             std::string check = currCollection->printPlayList(playListName);
             if(check == ""){
@@ -155,10 +168,12 @@ int main(){
             else{
                 std::cout << "Whats the name of the artist who made the song" << std::endl;
                 std::string artist;
-                std::cin >> artist;
+                std::cin.ignore();
+                std::getline(std::cin, artist);
                 std::cout << "Whats the title of the song?" << std::endl;
                 std::string title;
-                std::cin >> title;
+                std::cin.ignore();
+                std::getline(std::cin ,title);
 
                 if(currLib->findSongIndex(artist, title) == -1){
                     std::cout << "Sorry, I don't seem to have that song in my library" << std::endl;
@@ -174,7 +189,9 @@ int main(){
         else if(toDo == "playnext"){
             std::cout << "What playlist would you like to play the next song on? " << std::endl;
             std::string name;
-            std::cin >> name;
+            std::cin.ignore();
+            std::getline(std::cin ,name);
+
             if(currCollection->printPlayList(name) == ""){
                 std::cout << "Please enter the name of a valid playlist" << std::endl;
             }
@@ -188,7 +205,8 @@ int main(){
         else if(toDo == "newrandom"){
             std::cout << "What do you want to name the playlist?" << std::endl;
             std::string name;
-            std::cin >> name;
+            std::cin.ignore();
+            std::getline(std::cin ,name);
 
             std::cout << "How long do you want it to be?" << std::endl;
             //TODO
