@@ -11,7 +11,7 @@
 int main(){
     bool loop = true;
     ArrayListLibrary *currLib = new ArrayListLibrary();
-    PlaylistCollection *currCollection = new LinkedPlayListsCollection();
+    LinkedPlayListsCollection *currCollection = new LinkedPlayListsCollection();
     std::cout << "Welcome to our Auto DJ!" << std::endl;
     while(loop){
         std::cout << "What would you like to do?: " << std::endl;
