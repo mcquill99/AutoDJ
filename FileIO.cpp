@@ -58,7 +58,7 @@ void readToPlaylistsCollection(std::string collectionReadFile, PlaylistCollectio
 /*
  * write the current library into a file to read later
  */
-void writeFromLibrary(std::string libWriteFile, ArrayListLibrary& libToWrite){
+void writeFromLibrary(std::string libWriteFile, Library& libToWrite){
     std::ofstream ofs;
     ofs.open(libWriteFile, std::ofstream::out | std::ofstream::trunc);
     ofs.close();

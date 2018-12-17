@@ -7,12 +7,14 @@
 
 #include <string>
 #include "Song.h"
+#include "ArrayList.h"
 
 class Library {
 private:
     Library(const Library& listToCopy);
     Library& operator=(const Library& listToCopy);
 public:
+    ArrayList<Song>* libOfSongs;
     Library(){}
     virtual ~Library(){}
     virtual void addSong(Song &songToAdd)=0;
