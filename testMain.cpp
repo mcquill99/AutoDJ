@@ -114,8 +114,13 @@ int main(){
     readToPlaylistsCollection("C:\\Users\\Ligeti\\CLionProjects\\AutoDJ\\playlistLoad.txt", *tempCollection);
     std::cout<<*tempCollection<<std::endl;
 
+    addSongs("C:\\Users\\Ligeti\\CLionProjects\\AutoDJ\\songstoadd.txt", *tempLib);
 
+    removeSongs("C:\\Users\\Ligeti\\CLionProjects\\AutoDJ\\fuckTheseSongs.txt", *tempLib, *tempCollection);
 
+    writeFromLibrary("C:\\Users\\Ligeti\\CLionProjects\\AutoDJ\\LibOut.txt", *tempLib);
+
+    writeFromPlaylistsCollection("C:\\Users\\Ligeti\\CLionProjects\\AutoDJ\\playOut.txt", *tempCollection);
 
     return 0;
 }
