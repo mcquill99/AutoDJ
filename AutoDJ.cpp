@@ -3,9 +3,13 @@
 //
 
 #include <iostream>
+#include "ArrayListLibrary.h"
+#include "LinkedPlayListsCollection.h"
 
 int main(){
     bool loop = true;
+    Library *currLib = new ArrayListLibrary();
+    PlaylistCollection *currCollection = new LinkedPlayListsCollection();
     std::cout << "Welcome to our Auto DJ!" << std::endl;
     while(loop){
         std::cout << "What would you like to do?: " << std::endl;
@@ -28,43 +32,125 @@ int main(){
                          "newrandom - makes a new playlist with a given name and puts random songs in the playlist to fill it as close to the given duration as possible" << std::endl;
         }
         else if(toDo == "library"){
-            std::cout
+            std::cout << currLib->toString() << std::endl;
 
         }
         else if(toDo == "artist"){
-
+            std::cout << "What artist would you like to see?: " << std::endl;
+            std::string artist;
+            std::cin >> artist;
+            std::cout << currLib->printArtistSongs(artist)<< std::endl;
         }
         else if(toDo == "song"){
+            std::cout << "What artist is the song by? " << std::endl;
+            std::string artist;
+            std::cin >> artist;
+            std::cout << "What is the name of the song?" << std::endl;
+            std::string song;
+            std::cin >> song;
+
+            std::string toPrint = currLib->returnSong(artist, song);
+            if(toPrint == ""){
+                std::cout << "I don't believe that song is in the library" << std::endl;
+            }
+            else{
+                std::cout << toPrint << std::endl;
+            }
 
         }
         else if(toDo == "import"){
+            std::cout << "Whats the name of the file you want to import?: " << std::endl;
+            std::string fileName;
+            std::cin >> fileName;
+
 
         }
         else if(toDo == "discontinue"){
+            std::cout << "Whats the name of the file you want to discontinue?: " << std::endl;
+            std::string fileName;
+            std::cin >> fileName;
 
         }
         else if(toDo == "playlists"){
+            std::cout << currCollection << std::endl;
 
         }
         else if(toDo == "playlist"){
+            std::cout << "What is the name of the playlist you want to see? :" << std::endl;
+            std::string name;
+            std::cin >> name;
+
+            std::string toPrint = currCollection->printPlayList(name);
+            if(toPrint == ""){
+                std::cout << "that playlist doesnt exist!" << std::endl;
+            }
+            else{
+                std::cout << toPrint << std::endl;
+            }
 
         }
         else if(toDo == "new"){
+            std::cout << "What do you want to name your playlist?" << std::endl;
+            std::string name;
+            std::cin >> name;
+            currCollection->addPlayList(*new PlaylistQueue(name));
+            std::cout << "Playlist added successfully" << std::endl;
+
 
         }
         else if(toDo == "add"){
+            std::cout << "Whats the name of the playlist you want to add a song to? " << std::endl;
+            std::string playListName;
+            std::cin >> playListName;
+
+            std::string check = currCollection->printPlayList(playListName);
+            if(check == ""){
+                std::cout << "Please enter a valid playlist name" << std::endl;
+            }
+            else{
+                std::cout << "Whats the name";
+            }
 
         }
         else if(toDo == "remove"){
+            std::cout << "Whats the name of the playlist you want to remove a song from? " << std::endl;
+            std::string playListName;
+            std::cin >> playListName;
+
+            std::string check = currCollection->printPlayList(playListName);
+            if(check == ""){
+                std::cout << "Please enter a valid playlist name";
+            }
+            else{
+                std::cout << "Whats the name";
+            }
 
         }
         else if(toDo == "playnext"){
+            std::cout << "What playlist would you like to play the next song on? " << std::endl;
+            std::string name;
+            std::cin >> name;
+            if(currCollection->printPlayList(name) == ""){
+                std::cout << "Please enter the name of a valid playlist" << std::endl;
+            }
+            else{
+                //TODO make a getPlaylist function in linkedCollection
+            }
 
         }
         else if(toDo == "newrandom"){
+            std::cout << "What do you want to name the playlist?" << std::endl;
+            std::string name;
+            std::cin >> name;
+
+            std::cout << "How long do you want it to be?" << std::endl;
+
+
 
         }
         else if(toDo == "quit"){
+            std::cout << "Thank you for using this Auto DJ!" << std::endl;
+            loop = false;
 
         }
         else{

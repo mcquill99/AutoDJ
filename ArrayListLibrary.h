@@ -12,8 +12,9 @@
 
 class ArrayListLibrary : public Library {
 private:
-    ArrayList<Song>* libOfSongs;
 public:
+    ArrayList<Song>* libOfSongs;
+
     ArrayListLibrary();
     ~ArrayListLibrary();
     ArrayListLibrary& operator=(const ArrayListLibrary& playlistToCopy);
@@ -22,6 +23,8 @@ public:
     Song& getSong(int index) const ;
     int getSize() const;
     std::string toString();
+    std::string printArtistSongs(std::string artistName);
+    std::string returnSong(std::string artistName, std::string songName);
 //    void saveLibrary(std::string fileName);
 //    void loadLibrary(std::string fileName);
     ArrayList<Song> getLibrary() const;
