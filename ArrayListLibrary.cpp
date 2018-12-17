@@ -69,6 +69,17 @@ std::string ArrayListLibrary::toString(){
     return out.str();
 }
 
+int ArrayListLibrary::findSongIndex(std::string artistName, std::string songName){
+    int itemCount = libOfSongs->getItemCount();
+    for(int i = 0; i < itemCount; i++){
+        if(libOfSongs->getValueAt(i).getArtist() == artistName && libOfSongs->getValueAt(i).getTitle() == songName){
+            return i;
+        }
+    }
+    return -1;
+
+}
+
 //void ArrayListLibrary::saveLibrary(std::string fileName) {
 //    writeFromLibrary(fileName, this);
 //

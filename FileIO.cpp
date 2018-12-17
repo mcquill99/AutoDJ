@@ -4,10 +4,11 @@
 /*
 * This function reads a list of songs from a previously saved library written to some file libReadFile
 */
-void readToLibrary(std::string libReadFile, ArrayListLibrary& libToAdd){
+std::string readToLibrary(std::string libReadFile, Library& libToAdd){
     std::ifstream readToLib;
     readToLib.open(libReadFile);
     std::string word = "";
+    std::string toReturn = "";
     while(getline(readToLib,word)){
         std::stringstream ss(word);
         std::string artist,name,duration,playcount;
@@ -15,8 +16,14 @@ void readToLibrary(std::string libReadFile, ArrayListLibrary& libToAdd){
         getline(ss,name,',');
         getline(ss,duration,',');
         getline(ss,playcount,',');
-        libToAdd.addSong(*(new Song(artist,name,std::stoi(duration),std::stoi(playcount))));
+        if(libToAdd.findSongIndex(artist,name) == -1){
+            libToAdd.addSong(*(new Song(artist,name,std::stoi(duration),std::stoi(playcount))));
+        }
+        else{
+            toReturn = toReturn + artist + " - " + name + ", ";
+        }
     }
+    return toReturn;
 }
 /*
  * Reads a list of playlists with songs already in the library and saves them as playlists into playlist collection

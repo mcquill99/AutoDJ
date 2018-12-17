@@ -3,8 +3,10 @@
 //
 
 #include <iostream>
+#include <fstream>
 #include "ArrayListLibrary.h"
 #include "LinkedPlayListsCollection.h"
+#include "FileIO.h"
 
 int main(){
     bool loop = true;
@@ -63,6 +65,21 @@ int main(){
             std::string fileName;
             std::cin >> fileName;
 
+            std::ifstream ifile(fileName);
+            if(!ifile){
+                std::cout <<"This file doesn't exist!" << std::endl;
+            }
+            else{
+                std::string notAdded = readToLibrary(fileName, *currLib);
+                if(notAdded != ""){
+                    std::cout << "These songs could not be added because they already existed: " + notAdded << std::endl;
+                }
+                else{
+                    std::cout << "All songs added successfully" << std::endl;
+                }
+            }
+
+
 
         }
         else if(toDo == "discontinue"){
@@ -72,7 +89,7 @@ int main(){
 
         }
         else if(toDo == "playlists"){
-            std::cout << currCollection << std::endl;
+            std::cout << *currCollection << std::endl;
 
         }
         else if(toDo == "playlist"){
@@ -108,7 +125,21 @@ int main(){
                 std::cout << "Please enter a valid playlist name" << std::endl;
             }
             else{
-                std::cout << "Whats the name";
+                std::cout << "Whats the name of the artist who made the song" << std::endl;
+                std::string artist;
+                std::cin >> artist;
+                std::cout << "Whats the title of the song?" << std::endl;
+                std::string title;
+                std::cin >> title;
+
+                if(currLib->findSongIndex(artist, title) == -1){
+                    std::cout << "Sorry, I don't seem to have that song in my library" << std::endl;
+                }
+                else{
+                    int index = currLib->findSongIndex(artist, title);
+                    currCollection->getPlaylist(playListName).addSong(currLib->getSong(index));
+                    std::cout << "Song has been added" << std::endl;
+                }
             }
 
         }
@@ -122,7 +153,21 @@ int main(){
                 std::cout << "Please enter a valid playlist name";
             }
             else{
-                std::cout << "Whats the name";
+                std::cout << "Whats the name of the artist who made the song" << std::endl;
+                std::string artist;
+                std::cin >> artist;
+                std::cout << "Whats the title of the song?" << std::endl;
+                std::string title;
+                std::cin >> title;
+
+                if(currLib->findSongIndex(artist, title) == -1){
+                    std::cout << "Sorry, I don't seem to have that song in my library" << std::endl;
+                }
+                else{
+                    int index = currLib->findSongIndex(artist, title);
+                    currCollection->getPlaylist(playListName).removeSong(currLib->getSong(index));
+                    std::cout << "Song has been removed" << std::endl;
+                }
             }
 
         }
@@ -134,7 +179,9 @@ int main(){
                 std::cout << "Please enter the name of a valid playlist" << std::endl;
             }
             else{
-                //TODO make a getPlaylist function in linkedCollection
+                Song temp = currCollection->getPlaylist(name).playNext();
+                temp.incrementPlayCount();
+                std::cout << temp << std::endl;
             }
 
         }
@@ -144,6 +191,7 @@ int main(){
             std::cin >> name;
 
             std::cout << "How long do you want it to be?" << std::endl;
+            //TODO
 
 
 

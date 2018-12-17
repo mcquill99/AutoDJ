@@ -22,6 +22,7 @@ public:
     virtual std::string toString()=0;
     virtual std::string printArtistSongs(std::string artist)=0;
     virtual std::string returnSong(std::string artistName, std::string songName)=0;
+    virtual int findSongIndex(std::string artistName, std::string songName)=0;
 //    virtual void saveLibrary(std::string fileName)=0;
 //    virtual void loadLibrary(std::string fileName)=0;
 

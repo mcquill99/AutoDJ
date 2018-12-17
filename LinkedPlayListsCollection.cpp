@@ -37,6 +37,7 @@ std::string LinkedPlayListsCollection::printPlayList(std::string listName){
         for(int i = 0; i < length; i++){
             if(collection->getValueAt(i).getName() == listName){
                 PlaylistQueue playList = PlaylistQueue(collection->getValueAt(i));
+                playListString = playListString + playList.getName() + ": ";
                 while (!playList.isEmpty()) {
                     Song song = playList.playNext();
                     playListString += song.getArtist() + "-" + song.getTitle() + ", ";
@@ -75,7 +76,16 @@ LinkedList<PlaylistQueue>* LinkedPlayListsCollection::getCollection() const {
     return collection;
 }
 
-std::ostream& operator<<(std::ostream& os, const LinkedPlayListsCollection& a) {
+Playlist& LinkedPlayListsCollection::getPlaylist(std::string name){
+    for(int i = 0; i < collection->getItemCount(); i++){
+        if(collection->getValueAt(i).getName() == name){
+            return collection->getValueAt(i);
+        }
+    }
+
+}
+
+std::ostream& operator<<(std::ostream& os, const PlaylistCollection& a) {
     int itemCount = a.getCollection()->getItemCount();
     for(int i = 0; i < itemCount; i++){
         os << a.getCollection()->getValueAt(i).getName() << " " << std::to_string(a.getCollection()->getValueAt(i).getDuration()) << "\n";

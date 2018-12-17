@@ -29,7 +29,9 @@ public:
 
     LinkedList<PlaylistQueue>* getCollection() const;
 
-    friend std::ostream& operator<<(std::ostream& os, const LinkedPlayListsCollection& a);
+    Playlist& getPlaylist(std::string name);
+
+    friend std::ostream& operator<<(std::ostream& os, const PlaylistCollection& a);
 };
 
 
