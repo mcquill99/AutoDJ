@@ -30,6 +30,9 @@ void ArrayListLibrary::addSong(Song &songToAdd){
             if(songToAdd < libOfSongs->getValueAt(i)){
                 libOfSongs->insertAt(songToAdd, i);
             }
+            else if(i == itemCount - 1){
+                libOfSongs->insertAt(songToAdd, i);
+            }
         }
     }
 }
@@ -73,6 +76,29 @@ std::string ArrayListLibrary::toString(){
 //    readToLibrary(fileName, this);
 //}
 
+std::string ArrayListLibrary::printArtistSongs(std::string artistName){
+    int itemCount = libOfSongs->getItemCount();
+    std::string songNames = "";
+    for(int i = 0; i < itemCount; i++){
+        if(artistName == libOfSongs->getValueAt(i).getArtist()){
+            songNames = songNames + libOfSongs->getValueAt(i).getTitle() + ", ";
+        }
+    }
+    return songNames;
+
+}
+
+std::string ArrayListLibrary::returnSong(std::string artistName, std::string songName){
+    int itemCount = libOfSongs->getItemCount();
+    std::ostringstream out;
+    out << "";
+    for(int i = 0; i < itemCount; i++){
+        if(libOfSongs->getValueAt(i).getArtist() == artistName && libOfSongs->getValueAt(i).getTitle() == songName){
+            out << libOfSongs->getValueAt(i);
+        }
+    }
+    return out.str();
+}
 ArrayList<Song> ArrayListLibrary::getLibrary() const{
     return *libOfSongs;
 }
