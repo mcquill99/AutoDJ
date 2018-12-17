@@ -32,7 +32,7 @@ void ArrayListLibrary::addSong(Song &songToAdd){
                 break;
             }
             else if(i == itemCount - 1){
-                libOfSongs->insertAt(songToAdd, i);
+                libOfSongs->insertAt(songToAdd, i+1);
                 break;
             }
         }

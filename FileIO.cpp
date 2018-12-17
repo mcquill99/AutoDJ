@@ -4,7 +4,7 @@
 /*
 * This function reads a list of songs from a previously saved library written to some file libReadFile
 */
-void readToLibrary(std::string libReadFile, Library& libToAdd){
+void readToLibrary(std::string libReadFile, ArrayListLibrary& libToAdd){
     std::ifstream readToLib;
     readToLib.open(libReadFile);
     std::string word = "";
@@ -25,12 +25,26 @@ void readToPlaylistsCollection(std::string collectionReadFile, PlaylistCollectio
     std::ifstream readToCollection;
     readToCollection.open(collectionReadFile);
     std::string word = "";
+    std::string playlistName;
+    PlaylistQueue* playlistToAdd;
     while(getline(readToCollection,word)){
         std::stringstream ss(word);
-        std::string playlistName;
-        //collectionToAdd.addSong();
+        std::string temp;
+        if(getline(ss,temp,','), temp == "playlist"){
+            playlistToAdd = nullptr;
+            getline(ss,playlistName,':');
+            PlaylistQueue* playlistToAdd = new PlaylistQueue(playlistName);
+            collectionToAdd.addPlayList(*playlistToAdd);
+        }
+        else{
+            std::string artist,name,duration,playcount;
+            getline(ss,artist,',');
+            getline(ss,name,',');
+            getline(ss,duration,',');
+            getline(ss,playcount,',');
+            collectionToAdd.getCollection()->getValueAt(collectionToAdd.getCollection()->getItemCount()-1).addSong(*(new Song(artist, name, std::stoi(duration), std::stoi(playcount))));
+        }
     }
-    //TODO: Figure how to format playlists
 }
 /*
  * write the current library into a file to read later

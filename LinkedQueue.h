@@ -7,7 +7,7 @@
 
 
 #include "LinkedNode.h"
-
+#include "Song.h"
 template <class T>
 class LinkedQueue {
 private:
@@ -22,6 +22,7 @@ public:
     T dequeue();
     bool isEmpty();
     int getSum();
+    void removeFromMiddle(T& songToRemove);
     friend std::ostream& operator<<(std::ostream& os, const LinkedQueue<T>& a) {
         if (a.front == nullptr)
             return os << "[]";

@@ -67,7 +67,7 @@ T& ArrayList<T>::getValueAt(int index) {
 
 template <class T>
 bool ArrayList<T>::isEmpty() {
-    return itemCount;
+    return itemCount == 0;
 }
 
 template <class T>

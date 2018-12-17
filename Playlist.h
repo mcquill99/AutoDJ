@@ -16,7 +16,7 @@ public:
     Playlist() {}
     virtual ~Playlist() {}
     virtual void addSong(const Song& songToAdd)=0;
-    virtual void removeSong(std::string songToRemoveArtist, std::string songToRemoveName)=0;
+    virtual void removeSong(Song& songToRemove)=0;
     virtual int getDuration()=0;
     virtual Song playNext()=0;
     virtual bool isEmpty()=0;

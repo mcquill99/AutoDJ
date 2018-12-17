@@ -23,8 +23,8 @@ void PlaylistQueue::addSong(const Song& songToAdd) {
     songlist->enqueue(songToAdd);
 }
 
-void PlaylistQueue::removeSong(std::string songToRemoveArtist, std::string songToRemoveName) {
-    //TODO: Damion this is still wrong...
+void PlaylistQueue::removeSong(Song& songToRemove) {
+    songlist->removeFromMiddle(songToRemove);
 }
 
 int PlaylistQueue::getDuration() {
