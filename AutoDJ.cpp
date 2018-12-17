@@ -216,6 +216,8 @@ int main(){
         }
         else if(toDo == "quit"){
             std::cout << "Thank you for using this Auto DJ!" << std::endl;
+            writeFromLibrary("static\\savedLibrary.txt", &currLib);
+            writeFromPlaylistsCollection("static\\savedPlaylists.txt", &currCollection)
             loop = false;
 
         }

@@ -107,13 +107,13 @@ template <class T>
 void LinkedQueue<T>::removeFromMiddle(T &songToRemove) {
     LinkedNode<T>* temp = front;
     bool isEqual = temp->getItem() == songToRemove;
-    while(!isEqual){
+    while(!(temp->getNext()->getItem() == songToRemove)){
+        temp = temp->getNext();
         if(temp->getNext() == nullptr){
             return;
         }
-        temp = temp->getNext();
     }
-    LinkedNode<T>* nextNode = temp->getNext();
+    LinkedNode<T>* nextNode = temp->getNext()->getNext();
     temp->setNext(nextNode);
 
 }

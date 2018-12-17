@@ -108,15 +108,15 @@ int main(){
     ArrayListLibrary* tempLib = new ArrayListLibrary();
     LinkedPlayListsCollection* tempCollection = new LinkedPlayListsCollection();
     std::cout<<tempLib->toString()<<std::endl;
-    readToLibrary("static/addsong.txt", *tempLib);
+    readToLibrary("static/addSong.txt", *tempLib);
     std::cout<<tempLib->toString()<<std::endl;
 
     readToPlaylistsCollection("static/playlistLoad.txt", *tempCollection);
     std::cout<<*tempCollection<<std::endl;
 
-    addSongs("static/songstoadd.txt", *tempLib);
+    addSongs("static/songsToAdd.txt", *tempLib);
 
-    removeSongs("static/fuckTheseSongs.txt", *tempLib, *tempCollection);
+    removeSongs("static/removeSongs.txt", *tempLib, *tempCollection);
 
     writeFromLibrary("static/LibOut.txt", *tempLib);
 
