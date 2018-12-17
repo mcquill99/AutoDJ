@@ -7,9 +7,10 @@
 
 
 #include "LinkedNode.h"
+#include "Queue.h"
 
 template <class T>
-class LinkedQueue {
+class LinkedQueue : public Queue<T> {
 private:
     LinkedNode<T>* front;
     LinkedNode<T>* end;
