@@ -9,4 +9,4 @@ void readToPlaylistsCollection(std::string collectionReadFile, PlaylistCollectio
 void writeFromLibrary(std::string libWriteFile, Library& libToWrite);
 void writeFromPlaylistsCollection(std::string collectionWriteFile, PlaylistCollection& collectionToWrite);
 void addSongs(std::string songsAddFile, Library& libToAdd);
-void removeSongs(std::string songsRemoveFile, Library& libToRemove, LinkedPlayListsCollection& playlists);
+void removeSongs(std::string songsRemoveFile, Library& libToRemove, PlaylistCollection& playlists);

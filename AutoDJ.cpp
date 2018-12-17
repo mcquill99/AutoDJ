@@ -87,6 +87,7 @@ int main(){
             std::cout << "Whats the name of the file you want to discontinue?: " << std::endl;
             std::string fileName;
             std::getline(std::cin ,fileName);
+            ::removeSongs(fileName, *currLib, *currCollection);
 
         }
         else if(toDo == "playlists"){
@@ -138,8 +139,6 @@ int main(){
                 //std::cin.ignore();
                 std::getline(std::cin ,title);
 
-                std::cout << "What you entered: " + artist + " " + title<< std::endl;
-
                 if(currLib->findSongIndex(artist, title) == -1){
                     std::cout << "Sorry, I don't seem to have that song in my library" << std::endl;
                 }
@@ -158,7 +157,7 @@ int main(){
 
             std::string check = currCollection->printPlayList(playListName);
             if(check == ""){
-                std::cout << "Please enter a valid playlist name";
+                std::cout << "Please enter a valid playlist name" << std::endl;
             }
             else{
                 std::cout << "Whats the name of the artist who made the song" << std::endl;
@@ -201,7 +200,7 @@ int main(){
 
             std::cout << "How long do you want it to be?" << std::endl;
             std::string duration;
-            std::cin.ignore();
+            //std::cin.ignore();
             std::getline(std::cin, duration);
             currCollection->addRandomPlayList(std::stoi(duration), *currLib);
 

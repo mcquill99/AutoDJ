@@ -107,7 +107,7 @@ void addSongs(std::string songsAddFile, Library& libToAdd){
 /*
  * list of songs to remove from library and ALL playlists
  */
-void removeSongs(std::string songsRemoveFile, Library& libToRemove, LinkedPlayListsCollection& playlists){
+void removeSongs(std::string songsRemoveFile, Library& libToRemove, PlaylistCollection& playlists){
     std::ifstream songsToRemove;
     songsToRemove.open(songsRemoveFile);
     std::string word = "";
