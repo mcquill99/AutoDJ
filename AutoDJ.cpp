@@ -209,9 +209,10 @@ int main(){
             std::getline(std::cin ,name);
 
             std::cout << "How long do you want it to be?" << std::endl;
-            //TODO
-
-
+            std::string duration;
+            std::cin.ignore();
+            std::getline(std::cin, duration);
+            currCollection->addRandomPlayList(std::stoi(duration), *currLib);
 
         }
         else if(toDo == "quit"){
