@@ -108,19 +108,19 @@ int main(){
     ArrayListLibrary* tempLib = new ArrayListLibrary();
     LinkedPlayListsCollection* tempCollection = new LinkedPlayListsCollection();
     std::cout<<tempLib->toString()<<std::endl;
-    readToLibrary("C:\\Users\\Ligeti\\CLionProjects\\AutoDJ\\addsong.txt", *tempLib);
+    readToLibrary("static/addsong.txt", *tempLib);
     std::cout<<tempLib->toString()<<std::endl;
 
-    readToPlaylistsCollection("C:\\Users\\Ligeti\\CLionProjects\\AutoDJ\\playlistLoad.txt", *tempCollection);
+    readToPlaylistsCollection("static/playlistLoad.txt", *tempCollection);
     std::cout<<*tempCollection<<std::endl;
 
-    addSongs("C:\\Users\\Ligeti\\CLionProjects\\AutoDJ\\songstoadd.txt", *tempLib);
+    addSongs("static/songstoadd.txt", *tempLib);
 
-    removeSongs("C:\\Users\\Ligeti\\CLionProjects\\AutoDJ\\fuckTheseSongs.txt", *tempLib, *tempCollection);
+    removeSongs("static/fuckTheseSongs.txt", *tempLib, *tempCollection);
 
-    writeFromLibrary("C:\\Users\\Ligeti\\CLionProjects\\AutoDJ\\LibOut.txt", *tempLib);
+    writeFromLibrary("static/LibOut.txt", *tempLib);
 
-    writeFromPlaylistsCollection("C:\\Users\\Ligeti\\CLionProjects\\AutoDJ\\playOut.txt", *tempCollection);
+    writeFromPlaylistsCollection("static/playOut.txt", *tempCollection);
 
     return 0;
 }
