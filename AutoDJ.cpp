@@ -10,7 +10,7 @@
 
 int main(){
     bool loop = true;
-    Library *currLib = new ArrayListLibrary();
+    ArrayListLibrary *currLib = new ArrayListLibrary();
     PlaylistCollection *currCollection = new LinkedPlayListsCollection();
     std::cout << "Welcome to our Auto DJ!" << std::endl;
     while(loop){
@@ -218,5 +218,5 @@ int main(){
         }
     }
 
-    return -1;
+    return 0;
 }

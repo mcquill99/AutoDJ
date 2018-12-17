@@ -14,7 +14,7 @@ private:
     Library(const Library& listToCopy);
     Library& operator=(const Library& listToCopy);
 public:
-    ArrayList<Song>* libOfSongs;
+    ArrayList<Song>* libOfSongs=0;
     Library(){}
     virtual ~Library(){}
     virtual void addSong(Song &songToAdd)=0;
