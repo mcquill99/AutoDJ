@@ -75,7 +75,7 @@ void LinkedPlayListsCollection::removePlayList(){
 
 void LinkedPlayListsCollection::addRandomPlayList(int duration, const Library& lib){
     PlaylistQueue* randomPlaylist = new PlaylistQueue("Random");
-    while (randomPlaylist->getDuration() <= duration)
+    while (randomPlaylist->getDuration() < duration)
         randomPlaylist->addSong(lib.getSong(rand() % lib.getSize()));
     addPlayList(*randomPlaylist);
 }
