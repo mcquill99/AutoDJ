@@ -39,13 +39,23 @@ int main(){
             std::cout << "What artist would you like to see?: " << std::endl;
             std::string artist;
             std::cin >> artist;
-            //std::cout <<
+            std::cout << currLib->printArtistSongs(artist)<< std::endl;
         }
         else if(toDo == "song"){
-            std::cout << "What song would you like to see information for: " << std::endl;
+            std::cout << "What artist is the song by? " << std::endl;
+            std::string artist;
+            std::cin >> artist;
+            std::cout << "What is the name of the song?" << std::endl;
             std::string song;
             std::cin >> song;
-            //std::cout
+
+            std::string toPrint = currLib->returnSong(artist, song);
+            if(toPrint == ""){
+                std::cout << "I don't believe that song is in the library" << std::endl;
+            }
+            else{
+                std::cout << toPrint << std::endl;
+            }
 
         }
         else if(toDo == "import"){
@@ -95,7 +105,7 @@ int main(){
 
             std::string check = currCollection->printPlayList(playListName);
             if(check == ""){
-                std::cout << "Please enter a valid playlist name";
+                std::cout << "Please enter a valid playlist name" << std::endl;
             }
             else{
                 std::cout << "Whats the name";
@@ -117,12 +127,30 @@ int main(){
 
         }
         else if(toDo == "playnext"){
+            std::cout << "What playlist would you like to play the next song on? " << std::endl;
+            std::string name;
+            std::cin >> name;
+            if(currCollection->printPlayList(name) == ""){
+                std::cout << "Please enter the name of a valid playlist" << std::endl;
+            }
+            else{
+                //TODO make a getPlaylist function in linkedCollection
+            }
 
         }
         else if(toDo == "newrandom"){
+            std::cout << "What do you want to name the playlist?" << std::endl;
+            std::string name;
+            std::cin >> name;
+
+            std::cout << "How long do you want it to be?" << std::endl;
+
+
 
         }
         else if(toDo == "quit"){
+            std::cout << "Thank you for using this Auto DJ!" << std::endl;
+            loop = false;
 
         }
         else{
