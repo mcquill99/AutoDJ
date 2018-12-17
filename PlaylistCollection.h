@@ -21,7 +21,7 @@ public:
     virtual std::string printPlayList(std::string listName) = 0;
     virtual void addPlayList(const PlaylistQueue &playListToAdd) = 0;
     virtual void removePlayList() = 0;
-    virtual void addRandomPlayList(int size, const Library& lib) = 0;
+    virtual void addRandomPlayList(int duration, const Library& lib) = 0;
     virtual Playlist& getPlaylist(std::string name)=0;
     virtual LinkedList<PlaylistQueue>* getCollection() const = 0;
     friend std::ostream& operator<<(std::ostream& os, const PlaylistCollection& a);

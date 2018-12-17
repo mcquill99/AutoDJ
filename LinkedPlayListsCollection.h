@@ -25,7 +25,7 @@ public:
     void addPlayList(const PlaylistQueue& playListToAdd);
     void removePlayList();
 
-    void addRandomPlayList(int size, const Library& lib);
+    void addRandomPlayList(int duration, const Library& lib);
 
     LinkedList<PlaylistQueue>* getCollection() const;
 
