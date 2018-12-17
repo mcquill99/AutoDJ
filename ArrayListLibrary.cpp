@@ -29,9 +29,11 @@ void ArrayListLibrary::addSong(Song &songToAdd){
         for(int i = 0; i < itemCount; i++){
             if(songToAdd < libOfSongs->getValueAt(i)){
                 libOfSongs->insertAt(songToAdd, i);
+                break;
             }
             else if(i == itemCount - 1){
                 libOfSongs->insertAt(songToAdd, i);
+                break;
             }
         }
     }
